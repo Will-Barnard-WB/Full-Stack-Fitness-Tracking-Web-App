@@ -2,4 +2,6 @@
 
 ***Hi Team***
 
+**Collect Data -> Database -> Backend -> Frontend**
+
 
