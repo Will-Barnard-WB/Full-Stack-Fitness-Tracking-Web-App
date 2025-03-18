@@ -1,1 +1,0 @@
-Keep records of changes, bug fixes and changes to structured format
