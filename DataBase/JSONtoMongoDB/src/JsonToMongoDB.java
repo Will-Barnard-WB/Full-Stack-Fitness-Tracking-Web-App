@@ -18,7 +18,10 @@ import java.util.List;
 
         public void writeToDB(String filePath){
             //hardcoded the data base connection for now
-            String uri = "mongodb+srv://Writer:Writer@coursework2cluster.dxh23.mongodb.net/?retryWrites=true&w=majority&appName=Coursework2Cluster";
+
+            //the password is Writer
+
+            String uri = "mongodb+srv://Writer:<PASSWORD>@coursework2cluster.dxh23.mongodb.net/?retryWrites=true&w=majority&appName=Coursework2Cluster";
             String databaseName = "Coursework2Cluster";
             String collectionName = "UserDataCollection";
             String jsonFilePath = "path/to/your/jsonfile.json";
