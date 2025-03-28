@@ -16,12 +16,11 @@ import java.util.List;
         public static void main(String[] args) {
         }
 
-        public void writeToDB(String filePath, String userName, String password){
+        public void writeToDB(String jsonFilePath, String userName, String password){
             //hardcoded the data base connection for now
             String uri = "mongodb+srv://"+username+":"+password+"@coursework2cluster.dxh23.mongodb.net/?retryWrites=true&w=majority&appName=Coursework2Cluster";
             String databaseName = "Coursework2Cluster";
             String collectionName = "UserDataCollection";
-            String jsonFilePath = "path/to/your/jsonfile.json";
 
             try (MongoClient mongoClient = MongoClients.create(uri)) {
                 MongoDatabase database = mongoClient.getDatabase(databaseName);
