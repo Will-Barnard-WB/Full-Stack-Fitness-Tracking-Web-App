@@ -1,0 +1,82 @@
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_23\" default=\"true\" project-jdk-name=\"openjdk-23\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/out\" />\r\n  </component>\r\n</project>
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision 45c7791c2c04e20d6b3bb346b4ab7d4acd029305)
++++ b/.idea/misc.xml	(date 1742917723119)
+@@ -1,6 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_23" default="true" project-jdk-name="openjdk-23" project-jdk-type="JavaSDK">
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_X" default="true" project-jdk-name="openjdk-24" project-jdk-type="JavaSDK">
+     <output url="file://$PROJECT_DIR$/out" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: BackEnd/.gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>HELP.md\r\n.gradle\r\nbuild/\r\n!gradle/wrapper/gradle-wrapper.jar\r\n!**/src/main/**/build/\r\n!**/src/test/**/build/\r\n\r\n### STS ###\r\n.apt_generated\r\n.classpath\r\n.factorypath\r\n.project\r\n.settings\r\n.springBeans\r\n.sts4-cache\r\nbin/\r\n!**/src/main/**/bin/\r\n!**/src/test/**/bin/\r\n\r\n### IntelliJ IDEA ###\r\n.idea\r\n*.iws\r\n*.iml\r\n*.ipr\r\nout/\r\n!**/src/main/**/out/\r\n!**/src/test/**/out/\r\n\r\n### NetBeans ###\r\n/nbproject/private/\r\n/nbbuild/\r\n/dist/\r\n/nbdist/\r\n/.nb-gradle/\r\n\r\n### VS Code ###\r\n.vscode/\r\n
+===================================================================
+diff --git a/BackEnd/.gitignore b/BackEnd/.gitignore
+--- a/BackEnd/.gitignore	(revision 45c7791c2c04e20d6b3bb346b4ab7d4acd029305)
++++ b/BackEnd/.gitignore	(date 1742917720781)
+@@ -1,9 +1,8 @@
+ HELP.md
+-.gradle
+-build/
+-!gradle/wrapper/gradle-wrapper.jar
+-!**/src/main/**/build/
+-!**/src/test/**/build/
++target/
++!.mvn/wrapper/maven-wrapper.jar
++!**/src/main/**/target/
++!**/src/test/**/target/
+ 
+ ### STS ###
+ .apt_generated
+@@ -13,18 +12,12 @@
+ .settings
+ .springBeans
+ .sts4-cache
+-bin/
+-!**/src/main/**/bin/
+-!**/src/test/**/bin/
+ 
+ ### IntelliJ IDEA ###
+ .idea
+ *.iws
+ *.iml
+ *.ipr
+-out/
+-!**/src/main/**/out/
+-!**/src/test/**/out/
+ 
+ ### NetBeans ###
+ /nbproject/private/
+@@ -32,6 +25,9 @@
+ /dist/
+ /nbdist/
+ /.nb-gradle/
++build/
++!**/src/main/**/build/
++!**/src/test/**/build/
+ 
+ ### VS Code ###
+ .vscode/
+Index: BackEnd/.gitattributes
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>/gradlew text eol=lf\r\n*.bat text eol=crlf\r\n*.jar binary\r\n
+===================================================================
+diff --git a/BackEnd/.gitattributes b/BackEnd/.gitattributes
+--- a/BackEnd/.gitattributes	(revision 45c7791c2c04e20d6b3bb346b4ab7d4acd029305)
++++ b/BackEnd/.gitattributes	(date 1742917720785)
+@@ -1,3 +1,2 @@
+-/gradlew text eol=lf
+-*.bat text eol=crlf
+-*.jar binary
++/mvnw text eol=lf
++*.cmd text eol=crlf
