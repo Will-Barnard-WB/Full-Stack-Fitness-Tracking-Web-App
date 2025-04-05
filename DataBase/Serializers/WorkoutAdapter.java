@@ -1,8 +1,10 @@
 package Serializers;
 
 import com.google.gson.*;
+import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -27,8 +29,7 @@ public class WorkoutAdapter implements JsonDeserializer<Workout>, JsonSerializer
 
         int id = object.get(ID).getAsInt();
         long date = object.get(DATE).getAsLong();
-        List<Split> splits = context.deserialize(object.getAsJsonArray(SPLITS), Split.class);
-
+        List<Split> splits = context.deserialize(object.getAsJsonArray(SPLITS), new TypeToken<List<Split>>() {}.getType());
 
         return new Workout(id, date, splits);
     }
