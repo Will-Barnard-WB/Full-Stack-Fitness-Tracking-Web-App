@@ -25,4 +25,13 @@ public class Workout {
     public List<Split> getSplits() {
         return splits;
     }
+
+    @Override
+    public String toString() {
+        return "Workout{" +
+                "id=" + id +
+                ", date=" + date +
+                ", splits=" + splits +
+                '}';
+    }
 }
