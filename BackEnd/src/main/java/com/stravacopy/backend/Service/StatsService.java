@@ -18,6 +18,7 @@ public class StatsService {
 
     public RunningStats generateStats() {
         List<Split> splits = splitRepository.findAll();
+        // need a split Repository
 
         long totalDistance = 0;
         int totalHeartRate = 0;
@@ -27,9 +28,15 @@ public class StatsService {
             totalDistance += split.getDistance();
             totalHeartRate += split.getHeartRate();
             count++;
+
+            // more total for splits
         }
 
         double avgHeartRate = count > 0 ? (double) totalHeartRate / count : 0;
+
+        // more averages etc
+
+        // mood stats...
 
         return new RunningStats(totalDistance, avgHeartRate);
     }
