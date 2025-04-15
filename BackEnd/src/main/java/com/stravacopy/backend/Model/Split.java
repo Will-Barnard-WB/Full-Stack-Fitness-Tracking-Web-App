@@ -13,18 +13,8 @@ public class Split {
     private Integer Cadence;
     private Integer HeartRate;
 
+
+
+
     // Add further attributes as needed
-
-
-    public Integer getDistance() {
-        return Distance;
-    }
-
-    public Integer getHeartRate() {
-        return HeartRate;
-    }
-
-    public Integer getSpeed() {
-        return Speed;
-    }
 }
