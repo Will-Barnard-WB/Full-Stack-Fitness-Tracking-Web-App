@@ -12,7 +12,7 @@ public class User {
     private String name;
     private List<Workout> workouts;
     private List<Mood> moods;
-
+    private RunningStats userStatistics;
     // Add further attributes as needed
 
     // Getters, setters, constructors
