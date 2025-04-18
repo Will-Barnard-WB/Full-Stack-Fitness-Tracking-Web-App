@@ -11,6 +11,10 @@ public class Workout {
     private RunningStats runningStats;
     // Add further attributes as needed
 
+    public Workout()
+    {
+
+    }
 
     public List<Split> getSplits() {
         return splits;
@@ -18,5 +22,35 @@ public class Workout {
 
     public RunningStats getRunningStats() {
         return runningStats;
+    }
+
+    public int getId()
+    {
+        return id;
+    }
+
+    public void setId(int id)
+    {
+        this.id = id;
+    }
+
+    public LocalDateTime getDateTime()
+    {
+        return dateTime;
+    }
+
+    public void setDateTime(LocalDateTime dateTime)
+    {
+        this.dateTime = dateTime;
+    }
+
+    public void setRunningStats(RunningStats runningStats)
+    {
+        this.runningStats = runningStats;
+    }
+
+    public void setSplits(List<Split> splits)
+    {
+        this.splits = splits;
     }
 }
