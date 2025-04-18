@@ -18,7 +18,7 @@ export default function App() {
                 <Route path="/TakeMood" element={<TakeMood />} /> {/* Login Page before Layout */}
 
                 {/* Layout with child routes */}
-                <Route path="/Layout" element={<Layout />}>
+                <Route path="/layout" element={<Layout />}>
                     <Route index element={<MainWindow />} /> {/* Default child when in /layout */}
                     <Route path="MainWindow" element={<MainWindow />} />
                     <Route path="AchivementPage" element={<AchivementPage />} />
