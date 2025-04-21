@@ -1,19 +1,27 @@
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useLocation } from "react-router-dom";
+
 
 export default function Layout() {
+    const location = useLocation();
+    const isMainWindow = location.pathname === "/Layout"
+        || location.pathname === "/Layout/MainWindow";
+
     return (
         <div>
-            <h1>Dashboard</h1>
-            <nav>
-                <ul>
-                    <li>
-                        <Link to="/Layout/MainWindow">MainWindow</Link>
-                    </li>
-                </ul>
-            </nav>
             <div>
                 <Outlet /> {/* This is where child routes will be rendered */}
             </div>
+            {!isMainWindow ? (
+                <div>
+                    <h3>Back to main window</h3>
+                    <nav>
+                        <ul>
+                            <Link to="/Layout/MainWindow">MainWindow</Link>
+                        </ul>
+                    </nav>
+                </div>
+                ) : null
+            }
         </div>
     );
 }
