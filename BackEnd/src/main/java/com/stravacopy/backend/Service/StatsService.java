@@ -1,10 +1,11 @@
-package com.stravacopy.backend.service;
+package com.stravacopy.backend.Service;
 
-import com.stravacopy.backend.model.Split;
-import com.stravacopy.backend.model.RunningStats;
-import com.stravacopy.backend.repository.SplitRepository;
+import com.stravacopy.backend.Model.Split;
+import com.stravacopy.backend.Model.Workout;
+import com.stravacopy.backend.Model.RunningStats;
 import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
+import java.time.Duration;
 
 
 import java.util.List;
@@ -57,8 +58,8 @@ public class StatsService {
     public RunningStats generateUserStats(List<Workout> workouts){
 
         long totalDistance = 0;
-        int totalHeartRate = 0;
-        int totalSpeed = 0;
+        double totalHeartRate = 0;
+        double totalSpeed = 0;
         int count = 0;
 
         double fastest1kTime = 0;
@@ -72,13 +73,13 @@ public class StatsService {
 
             RunningStats workoutStats = workout.getRunningStats();
 
-            double workoutDistance = workoutStats.getTotalDistance();
-            double workoutAvgSpeed = workoutStats.getAverageSpeed();
-            double workoutMaxSpeed = workoutStats.getMaxSpeed();
+            long workoutDistance = workoutStats.getTotalDistance();
+            double workoutAvgSpeed = workoutStats.getAvgSpeed();
+            double workoutMaxSpeed = workoutStats.getHighestSpeed();
             double workoutHighestHeartRate = workoutStats.getHighestHeartRate();
-            double workout1kTime = workoutStats.getFastest1kTime();
-            double workout5kTime = workoutStats.getFastest1kTime();
-            double workout10kTime = workoutStats.getFastest1kTime();
+            double workout1kTime = workoutStats.getFastest1kPace();
+            double workout5kTime = workoutStats.getFastest5kPace();
+            double workout10kTime = workoutStats.getFastest10kPace();
 
             totalDistance += workoutDistance;
             totalHeartRate += workoutStats.getAvgHeartRate();
@@ -109,7 +110,7 @@ public class StatsService {
         double avgHeartRate = count > 0 ? (double) totalHeartRate / count : 0;
         double avgSpeed = count > 0 ? (double) totalSpeed / count : 0;
 
-        return new RunningStats(totalDistance, avgHeartRate, avgSpeed, fastest1kTime, fastest5kTime, fastest10kTime, highestSpeed, highestHeartRate, longestDistance)
+        return new RunningStats(totalDistance, avgHeartRate, avgSpeed, fastest1kTime, fastest5kTime, fastest10kTime, highestSpeed, highestHeartRate, longestDistance);
     }
 
     public Duration GenerateFastestSegments(List<Split> splits, long distance){
@@ -122,7 +123,7 @@ public class StatsService {
             for (int end = start; end < splits.size(); end++) {
                 totalDistance += splits.get(end).getDistance();
 
-                if (totalDistance >= targetDistanceInMeters) {
+                if (totalDistance >= distance) {
                     LocalDateTime endTime = splits.get(end).getTimeStamp();
                     Duration segmentTime = Duration.between(startTime, endTime);
 

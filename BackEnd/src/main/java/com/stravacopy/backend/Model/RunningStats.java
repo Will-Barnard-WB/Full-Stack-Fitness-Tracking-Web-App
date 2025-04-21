@@ -1,4 +1,7 @@
-package com.stravacopy.backend.model;
+package com.stravacopy.backend.Model;
+
+import java.util.List;
+import java.util.ArrayList;
 
 public class RunningStats {
     private long totalDistance;
