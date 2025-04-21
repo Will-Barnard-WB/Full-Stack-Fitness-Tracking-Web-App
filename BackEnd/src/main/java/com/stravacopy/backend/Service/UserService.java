@@ -31,6 +31,11 @@ public class UserService {
         return optionalUser.map(User::getWorkouts).orElse(Collections.emptyList());
     }
 
+    public User getUserByID(String userId) {
+        Optional<User> userOptional = userRepository.findById(userId);
+        return userOptional.orElse(null);
+    }
+
     // You can also add methods like:
     // - addRunToUser()
     // - deleteRunFromUser()

@@ -10,3 +10,5 @@ public class Mood {
 
     // Add further attributes as needed
 }
+
+// needs adjusting based on database storage plan - i.e. linking to user?

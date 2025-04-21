@@ -6,6 +6,7 @@ import com.stravacopy.backend.Repository.UserRepository;
 import com.stravacopy.backend.Service.UserService;
 import com.stravacopy.backend.Service.StatsService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,6 +24,9 @@ public class UserController {
 
     @Autowired
     private StatsService statsService;
+
+    @Autowired
+    private MoodService moodService;
 
     // Simple endpoint to get all users
     @GetMapping
@@ -66,6 +70,20 @@ public class UserController {
             return ResponseEntity.ok(userStats);
         }
         return ResponseEntity.ok(workouts);
+    }
+
+    @PostMapping("/{userId}/mood") // again not sure on paths
+    public ResponseEntity<Mood> getUserMood(@PathVariable String userId, @RequestBody int moodValue) {
+        User user = userService.getUserById(userId);
+        if (user != null){
+            Mood mood = new Mood(user, moodValue); // change as needed based on chosen implementation
+            Mood savedMood = moodService.saveMood(mood): // again change once implemented
+
+            return ResponseEntity.ok(savedMood);
+        }
+        else {
+            return ResponseEntity.notFound().build();
+        }
     }
 
 
