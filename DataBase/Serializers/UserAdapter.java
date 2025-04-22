@@ -28,7 +28,7 @@ public class UserAdapter implements JsonDeserializer<User>, JsonSerializer<User>
         int id = object.get(ID).getAsInt();
         String name = object.get(NAME).getAsString();
         List<Workout> workouts = context.deserialize(object.getAsJsonArray(WORKOUTS), new TypeToken<List<Workout>>() {}.getType());
-        List<Mood> workouts = context.deserialize(object.getAsJsonArray(MOODS), new TypeToken<List<Workout>>() {}.getType());
+        List<Mood> moods = context.deserialize(object.getAsJsonArray(MOODS), new TypeToken<List<Workout>>() {}.getType());
 
         return new User(id, name, workouts, moods);
     }
