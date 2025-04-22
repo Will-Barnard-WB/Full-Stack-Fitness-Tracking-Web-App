@@ -16,25 +16,25 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    public Workout getWorkoutByUserIdAndWorkoutId(String userId, String workoutId) {
-        Optional<User> optionalUser = userRepository.findById(userId);
+    public Workout getWorkoutByUserIdAndWorkoutId(int userId, int workoutId) {
+        Optional<User> optionalUser = Optional.ofNullable(userRepository.findById(userId));
         if (optionalUser.isPresent()) {
             User user = optionalUser.get();
             return user.getWorkouts().stream()
-                    .filter(workout -> workout.getId().equals(workoutId))
+                    .filter(workout -> workout.getId() == workoutId)
                     .findFirst()
                     .orElse(null);
         }
         return null;
     }
 
-    public List<Workout> getAllWorkoutsForUser(String userId) {
-        Optional<User> optionalUser = userRepository.findById(userId);
+    public List<Workout> getAllWorkoutsForUser(int userId) {
+        Optional<User> optionalUser = Optional.ofNullable(userRepository.findById(userId));
         return optionalUser.map(User::getWorkouts).orElse(Collections.emptyList());
     }
 
-    public User getUserByID(String userId) {
-        Optional<User> userOptional = userRepository.findById(userId);
+    public User getUserByID(int userId) {
+        Optional<User> userOptional = Optional.ofNullable(userRepository.findById(userId));
         return userOptional.orElse(null);
     }
 

@@ -54,8 +54,8 @@ public class UserController {
 
     @GetMapping("/{userId}/workouts/{workoutId}") //not sure on the path here
     public ResponseEntity<RunningStats> getWorkoutStats(
-            @PathVariable String userId,
-            @PathVariable String workoutId) {
+            @PathVariable int userId,
+            @PathVariable int workoutId) {
         Workout workout = userService.getWorkoutByUserIdAndWorkoutId(userId, workoutId);
         if (workout != null) {
             RunningStats workoutStats = statsService.generateWorkOutStats(workout);
@@ -66,18 +66,18 @@ public class UserController {
     }
 
     @GetMapping("/{userId}/workouts") // again not sure on paths
-    public ResponseEntity<RunningStats> getAllWorkoutStats(@PathVariable String userId) {
+    public ResponseEntity<RunningStats> getAllWorkoutStats(@PathVariable int userId) {
         List<Workout> workouts = userService.getAllWorkoutsForUser(userId);
         if (!workouts.isEmpty()) {
             RunningStats userStats = statsService.generateUserStats(workouts);
             return ResponseEntity.ok(userStats);
         }
-        return ResponseEntity.ok(workouts);
+        return ResponseEntity.ok((RunningStats) workouts);
     }
 
     @PostMapping("/{userId}/mood") // again not sure on paths
-    public ResponseEntity<Mood> getUserMood(@PathVariable String userId, @RequestBody int moodValue) {
-        User user = userService.getUserById(userId);
+    public ResponseEntity<Mood> getUserMood(@PathVariable int userId, @RequestBody int moodValue) {
+        User user = userService.getUserByID(userId);
         if (user != null){
             Mood mood = new Mood(user, moodValue); // change as needed based on chosen implementation
             Mood savedMood = moodService.saveMood(mood); // again change once implemented

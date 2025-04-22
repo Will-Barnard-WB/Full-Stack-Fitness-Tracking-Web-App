@@ -7,6 +7,9 @@ public class Mood {
     private int mood; // I think mood should be more dimensional, not just an integer
     private LocalDateTime dateTime;
 
+    public Mood(User user, int moodValue) {
+    }
+
 
     // Add further attributes as needed
 }
