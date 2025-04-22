@@ -10,12 +10,12 @@ public class UserAdapterTest {
         Gson gson = gsonBuilder.create();
 
         // Sample Split objects
-        Split split1 = new Split(1627849201, 50L, 60L, 100L, 200L, 15L, 80, 120);
-        Split split2 = new Split(1627849202, 55L, 65L, 110L, 210L, 16L, 85, 125);
+        Split split1 = new Split(1627849200000L, 50L, 60L, 100L, 200L, 15L, 80, 120);
+        Split split2 = new Split(1627849200000L, 55L, 65L, 110L, 210L, 16L, 85, 125);
 
         // Sample Workout object
         Workout workout1 = new Workout(1, 1627849200000L, Arrays.asList(split1, split2));
-        Workout workout2 = new Workout(2, 1627849300000L, Arrays.asList(split1));
+        Workout workout2 = new Workout(2, 1627849200000L, Arrays.asList(split1));
 
         // Sample User object
         User user = new User(1, "John Doe", Arrays.asList(workout1, workout2));
