@@ -92,14 +92,16 @@ public class UserController {
         return ResponseEntity.ok((RunningStats) workouts);
     }
 
-    @PostMapping("/{userId}/mood") // again not sure on paths
-    public ResponseEntity<Mood> getUserMood(@PathVariable String userId, @RequestBody int moodValue) {
+    @PostMapping("/{userId}/mood")
+    public ResponseEntity<String> getUserMood(@PathVariable String userId, @RequestBody int moodValue) {
         User user = userService.getUserByID(userId);
         if (user != null){
-            Mood mood = new Mood(user, moodValue); // change as needed based on chosen implementation
-            Mood savedMood = moodService.saveMood(mood); // again change once implemented
-
-            return ResponseEntity.ok(savedMood);
+            Mood mood = new Mood(moodValue);
+            List<Mood> currentMoods = user.getMoods();
+            currentMoods.add(mood);
+            user.setMoods(currentMoods);
+            addUser(user);
+            return ResponseEntity.ok("Mood saved successfully.");
         }
         else {
             return ResponseEntity.notFound().build();
