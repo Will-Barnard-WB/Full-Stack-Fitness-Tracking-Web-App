@@ -1,10 +1,6 @@
 package com.stravacopy.backend.Service;
 
-import com.stravacopy.backend.Model.Split;
-import com.stravacopy.backend.Model.Workout;
-import com.stravacopy.backend.Model.RunningStats;
-import com.stravacopy.backend.Model.LeaderboardEntry;
-import com.stravacopy.backend.Model.User;
+import com.stravacopy.backend.Model.*;
 import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.time.Duration;
@@ -146,7 +142,7 @@ public class StatsService {
         return fastestTime.toMinutes();
 
     }
-    public List<LeaderboardEntry> getLeaderboardByType(String type, List<User> users) {
+    public Leaderboard getLeaderboardByType(String type, List<User> users) {
         List<LeaderboardEntry> leaderboard = new ArrayList<>();
 
         for (User user : users) {
@@ -173,6 +169,6 @@ public class StatsService {
             leaderboard.sort(Comparator.comparing(LeaderboardEntry::getValue).reversed());
         }
 
-        return leaderboard;
+        return new Leaderboard(leaderboard);
     }
 }

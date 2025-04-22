@@ -108,8 +108,12 @@ public class MainController {
     }
 
     @GetMapping("/Leaderboard")
-    public ResponseEntity<LeaderboardEntry> getLeaderboard(@RequestBody String LeaderboardType) {
-        return statsService.getLeaderboardByType(LeaderboardType, userRepository.findAll());
+    public ResponseEntity<Leaderboard> getLeaderboard(@RequestBody String LeaderboardType) {
+        if (userRepository.findAll().isEmpty()) {
+            return ResponseEntity.notFound().build();
+        } else {
+            return ResponseEntity.ok(statsService.getLeaderboardByType(LeaderboardType, userRepository.findAll()));
+        }
     }
 
 
