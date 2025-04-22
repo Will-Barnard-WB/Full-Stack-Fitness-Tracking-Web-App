@@ -20,11 +20,11 @@ public class StatsService {
         int totalHeartRate = 0;
         int totalSpeed = 0;
         int count = 0;
-        Duration fastest1kTime = 0;
-        Duration fastest5kTime = 0;
-        Duration fastest10kTime = 0;
+        double fastest1kTime = 0;
+        double fastest5kTime = 0;
+        double fastest10kTime = 0;
         double highestSpeed = 0;
-        double highestHeartRate = 0;
+        int highestHeartRate = 0;
 
         for (Split split : splits) {
 
@@ -67,7 +67,7 @@ public class StatsService {
         double fastest10kTime = 0;
         double longestDistance = 0;
         double highestSpeed = 0;
-        double highestHeartRate = 0;
+        int highestHeartRate = 0;
 
         for (Workout workout: workouts) {
 
@@ -76,7 +76,7 @@ public class StatsService {
             long workoutDistance = workoutStats.getTotalDistance();
             double workoutAvgSpeed = workoutStats.getAvgSpeed();
             double workoutMaxSpeed = workoutStats.getHighestSpeed();
-            double workoutHighestHeartRate = workoutStats.getHighestHeartRate();
+            int workoutHighestHeartRate = workoutStats.getHighestHeartRate();
             double workout1kTime = workoutStats.getFastest1kPace();
             double workout5kTime = workoutStats.getFastest5kPace();
             double workout10kTime = workoutStats.getFastest10kPace();
@@ -113,7 +113,7 @@ public class StatsService {
         return new RunningStats(totalDistance, avgHeartRate, avgSpeed, fastest1kTime, fastest5kTime, fastest10kTime, highestSpeed, highestHeartRate, longestDistance);
     }
 
-    public Duration GenerateFastestSegments(List<Split> splits, long distance){
+    public double GenerateFastestSegments(List<Split> splits, long distance){
         Duration fastestTime = null;
 
         for (int start = 0; start < splits.size(); start++) {
@@ -136,7 +136,8 @@ public class StatsService {
             }
         }
 
-        return fastestTime;
+        assert fastestTime != null;
+        return fastestTime.toMinutes();
 
     }
 

@@ -29,5 +29,9 @@ public class Split {
         return Cadence;
     }
 
+    public LocalDateTime getTimeStamp() {
+        return timeStamp;
+    }
+
     // Add further attributes as needed
 }

@@ -2,6 +2,8 @@ package com.stravacopy.backend.Controller;
 
 import com.stravacopy.backend.Model.User;
 import com.stravacopy.backend.Model.Workout;
+import com.stravacopy.backend.Model.Mood;
+import com.stravacopy.backend.Model.RunningStats;
 import com.stravacopy.backend.Repository.UserRepository;
 import com.stravacopy.backend.Service.MoodService;
 import com.stravacopy.backend.Service.UserService;
