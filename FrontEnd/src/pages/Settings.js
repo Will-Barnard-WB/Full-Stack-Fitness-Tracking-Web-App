@@ -67,6 +67,7 @@ const Settings = () => {
                     Log Out
                 </button>
             </div>
+            <button className='back' onClick={() => navigate('/Layout/MainWindow')}>Back</button>
         </div>
     );
 };
