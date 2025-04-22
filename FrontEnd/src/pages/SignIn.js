@@ -20,7 +20,6 @@ function SignIn() {
         const passwords = JSON.parse(localStorage.getItem('passwords'));
 
         if (users.includes(username) && password === passwords[users.indexOf(username)]) {
-            alert('Logged in!');
             localStorage.setItem('loggedInUser', username);
             navigate("/TakeMood");
         }
