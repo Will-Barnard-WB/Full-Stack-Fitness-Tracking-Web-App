@@ -22,7 +22,7 @@ public class MongoDBConnector {
     private final MongoClient mongoClient;
     private final MongoDatabase database;
     private final MongoCollection<Document> collection;
-    
+
     //establish connection
     public MongoDBConnector(String username, String password) {
         String uri = "mongodb+srv://" + username + ":" + password + "@coursework2cluster.dxh23.mongodb.net/?retryWrites=true&w=majority&appName=Coursework2Cluster";
@@ -38,11 +38,11 @@ public class MongoDBConnector {
         }
         return instance;
     }
-    
-    
-    // Create a new document in the DB for a new user. 
+
+
+    // Create a new document in the DB for a new user.
     // provide string and password which will be encrypted with SHA-256
-    
+
     public void createUserDocument(String username, String userPassword){
         try {
             MessageDigest digest = MessageDigest.getInstance("SHA-256");
@@ -63,10 +63,10 @@ public class MongoDBConnector {
             System.err.println("Unable to insert due to an error: " + me);
         }
     }
-    
+
     //Append this workout to the user.
     //so far I have left the workout as BSON but you can make overloaded methods to allow for gson/json objects
-    
+
     public void insertWorkout(ObjectId userID, Bson workout){
         try{
             Bson findQuery = new BasicDBObject("_id", userID);
@@ -85,6 +85,45 @@ public class MongoDBConnector {
             DBObject listItem = new BasicDBObject("Workouts", workout);
             Bson updateQuery = new BasicDBObject("$push", listItem);
             collection.updateOne(findQuery, updateQuery);
+            System.out.println("Succesfully added a new workout to user!!");
+        } catch (MongoException me){
+            System.err.println("Unable to insert due to an error: " + me);
+        }
+    }
+
+    public void insertMood(ObjectId userID , Bson mood){
+        try{
+            Bson findQuery = new BasicDBObject("_id", userID);
+            DBObject listItem = new BasicDBObject("Moods", mood);
+            Bson updateQuery = new BasicDBObject("$push", listItem);
+            collection.updateOne(findQuery, updateQuery);
+            System.out.println("Succesfully added a new mood to user!!");
+        } catch (MongoException me){
+            System.err.println("Unable to insert due to an error: " + me);
+        }
+    }
+
+    public void insertMood(String userIDstring , Bson mood){
+        try{
+            ObjectId userID = new ObjectId(userIDstring);
+            Bson findQuery = new BasicDBObject("_id", userID);
+            DBObject listItem = new BasicDBObject("Moods", mood);
+            Bson updateQuery = new BasicDBObject("$push", listItem);
+            collection.updateOne(findQuery, updateQuery);
+            System.out.println("Successfully added a new mood to user!!");
+        } catch (MongoException me){
+            System.err.println("Unable to insert due to an error: " + me);
+        }
+    }
+// This is how to remove a value from an array for a user
+    // This can be replicated for mood as well
+    public void deleteWorkout(String userIDstring , Bson workout){
+        try{
+            ObjectId userID = new ObjectId(userIDstring);
+            Bson findQuery = new BasicDBObject("_id", userID);
+            DBObject listItem = new BasicDBObject("Workouts", workout);
+            Bson updateQuery = new BasicDBObject("$pull", listItem);
+            collection.updateOne(updateQuery,findQuery);
             System.out.println("Succesfully added a new workout to user!!");
         } catch (MongoException me){
             System.err.println("Unable to insert due to an error: " + me);
