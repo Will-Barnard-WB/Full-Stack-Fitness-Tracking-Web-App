@@ -171,4 +171,22 @@ public class StatsService {
 
         return new Leaderboard(leaderboard);
     }
+
+    public List<SplitComparison> compareSplits(List<Split> splits) {
+
+        List<SplitComparison> comparisons = new ArrayList<>();
+
+        for (int i = 1; i < splits.size(); i++) {
+            Split previous = splits.get(i - 1);
+            Split current = splits.get(i);
+
+            int speedChange = current.getSpeed() - previous.getSpeed();
+            int heartRateChange = current.getHeartRate() - previous.getHeartRate();
+            int distanceChange = current.getDistance() - previous.getDistance();
+
+            comparisons.add(new SplitComparison(i, speedChange, heartRateChange, distanceChange));
+        }
+
+        return comparisons;
+    }
 }
