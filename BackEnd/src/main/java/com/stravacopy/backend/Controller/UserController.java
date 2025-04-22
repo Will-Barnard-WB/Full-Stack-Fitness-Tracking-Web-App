@@ -42,7 +42,7 @@ public class UserController {
         return userRepository.save(user);
     }
 
-    public User getUserById(int id)
+    public User getUserById(String id)
     {
         return userRepository.findById(id);
     }
