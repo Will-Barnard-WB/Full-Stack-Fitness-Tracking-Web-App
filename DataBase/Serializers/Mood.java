@@ -4,19 +4,19 @@ import java.time.LocalDateTime;
 
 public class Mood {
     private final int mood;
-    private final LocalDateTime dateTime;
+    private final int timeStamp;
 
-    public Mood(int mood, LocalDateTime dateTime) {
+    public Mood(int mood, int timeStamp) {
         this.mood = mood;
-        this.dateTime = dateTime;
+        this.timeStamp = timeStamp;
     }
 
     public int getMood() {
         return mood;
     }
 
-    public LocalDateTime getDateTime() {
-        return dateTime;
+    public int getTimeStamp() {
+        return timeStamp;
     }
 }
 
