@@ -3,11 +3,15 @@ package com.stravacopy.backend.Service;
 import com.stravacopy.backend.Model.Split;
 import com.stravacopy.backend.Model.Workout;
 import com.stravacopy.backend.Model.RunningStats;
+import com.stravacopy.backend.Model.LeaderboardEntry;
+import com.stravacopy.backend.Model.User;
 import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.time.Duration;
 
 
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 @Service
@@ -107,8 +111,8 @@ public class StatsService {
             count++;
         }
 
-        double avgHeartRate = count > 0 ? (double) totalHeartRate / count : 0;
-        double avgSpeed = count > 0 ? (double) totalSpeed / count : 0;
+        double avgHeartRate = count > 0 ? totalHeartRate / count : 0;
+        double avgSpeed = count > 0 ? totalSpeed / count : 0;
 
         return new RunningStats(totalDistance, avgHeartRate, avgSpeed, fastest1kTime, fastest5kTime, fastest10kTime, highestSpeed, highestHeartRate, longestDistance);
     }
@@ -140,5 +144,33 @@ public class StatsService {
         return fastestTime.toMinutes();
 
     }
+    public List<LeaderboardEntry> getLeaderboardByType(String type, List<User> users) {
+        List<LeaderboardEntry> leaderboard = new ArrayList<>();
 
+        for (User user : users) {
+            RunningStats stats = user.getUserStatistics();
+            double value = switch (type.toLowerCase()) {
+                case "fastest5k" -> stats.getFastest5kPace();
+                case "fastest1k" -> stats.getFastest1kPace();
+                case "fastest10k" -> stats.getFastest10kPace();
+                case "totaldistance" -> stats.getTotalDistance();
+                case "topspeed" -> stats.getHighestSpeed();
+                default -> -1;
+            };
+
+            if (value > 0) {
+                leaderboard.add(new LeaderboardEntry(user.getName(), value));
+            }
+        }
+
+        // Sorting: fastest times = ascending
+        // everything else = descending
+        if (type.toLowerCase().startsWith("fastest")) {
+            leaderboard.sort(Comparator.comparing(LeaderboardEntry::getValue));
+        } else {
+            leaderboard.sort(Comparator.comparing(LeaderboardEntry::getValue).reversed());
+        }
+
+        return leaderboard;
+    }
 }
