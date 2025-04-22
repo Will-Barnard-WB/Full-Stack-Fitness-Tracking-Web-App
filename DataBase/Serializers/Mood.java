@@ -1,22 +1,6 @@
 package DataBase.Serializers;
 
-import java.time.LocalDateTime;
+import java.io.Serializable;
 
-public class Mood {
-    private final int mood;
-    private final int timeStamp;
-
-    public Mood(int mood, int timeStamp) {
-        this.mood = mood;
-        this.timeStamp = timeStamp;
-    }
-
-    public int getMood() {
-        return mood;
-    }
-
-    public int getTimeStamp() {
-        return timeStamp;
-    }
+public record Mood(int mood, long timeStamp) implements Serializable {
 }
-
