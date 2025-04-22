@@ -33,7 +33,7 @@ public class User {
     }
 
     public List<Mood> getMoods() {
-        return workouts;
+        return moods;
     }
 
     @Override
