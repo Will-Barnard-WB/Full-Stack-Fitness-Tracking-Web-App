@@ -13,12 +13,16 @@ public class UserAdapterTest {
         Split split1 = new Split(1627849200000L, 50L, 60L, 100L, 200L, 15L, 80, 120);
         Split split2 = new Split(1627849200000L, 55L, 65L, 110L, 210L, 16L, 85, 125);
 
+        Mood mood1 = new Mood(1, 1627849200000L);
+        Mood mood2 = new Mood(3, 1627849200000L);
+
+
         // Sample Workout object
         Workout workout1 = new Workout(1, 1627849200000L, Arrays.asList(split1, split2));
         Workout workout2 = new Workout(2, 1627849200000L, Arrays.asList(split1));
 
         // Sample User object
-        User user = new User(1, "John Doe", Arrays.asList(workout1, workout2));
+        User user = new User(1, "John Doe", Arrays.asList(workout1, workout2), Arrays.asList(mood1, mood2));
 
         // Serialize
         String json = gson.toJson(user);
