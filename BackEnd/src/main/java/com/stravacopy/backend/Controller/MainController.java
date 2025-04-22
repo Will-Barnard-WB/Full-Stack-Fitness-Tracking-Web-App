@@ -107,6 +107,11 @@ public class MainController {
         }
     }
 
+    @GetMapping("/Leaderboard")
+    public ResponseEntity<LeaderboardEntry> getLeaderboard(@RequestBody String LeaderboardType) {
+        return statsService.getLeaderboardByType(LeaderboardType, userRepository.findAll());
+    }
+
 
 
 
