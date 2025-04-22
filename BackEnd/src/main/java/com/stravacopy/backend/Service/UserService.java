@@ -1,4 +1,4 @@
-package com.stravacopy.backend.service;
+package com.stravacopy.backend.Service;
 
 import com.stravacopy.backend.Model.User;
 import com.stravacopy.backend.Model.Workout;
@@ -6,6 +6,8 @@ import com.stravacopy.backend.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
+import java.util.List;
 import java.util.Optional;
 
 @Service

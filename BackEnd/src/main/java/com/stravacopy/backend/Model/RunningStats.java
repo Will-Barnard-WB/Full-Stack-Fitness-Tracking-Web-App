@@ -40,7 +40,7 @@ public class RunningStats {
             int heartRateChange = current.getHeartRate() - previous.getHeartRate();
             int distanceChange = current.getDistance() - previous.getDistance();
 
-            comparisons.add(new SplitComparisonDTO(i, speedChange, heartRateChange, distanceChange));
+            comparisons.add(new SplitComparison(i, speedChange, heartRateChange, distanceChange));
         }
 
         return comparisons;

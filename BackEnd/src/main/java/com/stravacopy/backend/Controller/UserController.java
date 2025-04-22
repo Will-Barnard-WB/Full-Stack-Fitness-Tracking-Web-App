@@ -3,6 +3,7 @@ package com.stravacopy.backend.Controller;
 import com.stravacopy.backend.Model.User;
 import com.stravacopy.backend.Model.Workout;
 import com.stravacopy.backend.Repository.UserRepository;
+import com.stravacopy.backend.Service.MoodService;
 import com.stravacopy.backend.Service.UserService;
 import com.stravacopy.backend.Service.StatsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -77,7 +78,7 @@ public class UserController {
         User user = userService.getUserById(userId);
         if (user != null){
             Mood mood = new Mood(user, moodValue); // change as needed based on chosen implementation
-            Mood savedMood = moodService.saveMood(mood): // again change once implemented
+            Mood savedMood = moodService.saveMood(mood); // again change once implemented
 
             return ResponseEntity.ok(savedMood);
         }

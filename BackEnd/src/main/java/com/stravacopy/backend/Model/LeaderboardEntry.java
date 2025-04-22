@@ -3,7 +3,7 @@ package com.stravacopy.backend.Model;
 public class LeaderboardEntry {
     //generic entry for leaderboards
 
-    private String name;
+    private String username;
     private double value;
 
     public LeaderboardEntry(String username, double value) {

@@ -20,9 +20,9 @@ public class StatsService {
         int totalHeartRate = 0;
         int totalSpeed = 0;
         int count = 0;
-        double fastest1kTime = 0;
-        double fastest5kTime = 0;
-        double fastest10kTime = 0;
+        Duration fastest1kTime = 0;
+        Duration fastest5kTime = 0;
+        Duration fastest10kTime = 0;
         double highestSpeed = 0;
         double highestHeartRate = 0;
 
