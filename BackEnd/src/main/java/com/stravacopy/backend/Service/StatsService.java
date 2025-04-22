@@ -30,21 +30,23 @@ public class StatsService {
         double highestSpeed = 0;
         int highestHeartRate = 0;
 
-        for (Split split : splits) {
+        if (splits != null) {
+            for (Split split : splits) {
 
-            totalDistance += split.getDistance();
-            totalHeartRate += split.getHeartRate();
-            totalSpeed += split.getSpeed();
+                totalDistance += split.getDistance();
+                totalHeartRate += split.getHeartRate();
+                totalSpeed += split.getSpeed();
 
-            if (highestSpeed > split.getSpeed()){
-                highestSpeed = split.getSpeed();
+                if (highestSpeed > split.getSpeed()) {
+                    highestSpeed = split.getSpeed();
+                }
+                if (highestHeartRate > split.getHeartRate()) {
+                    highestHeartRate = split.getHeartRate();
+                }
+
+                count++;
+
             }
-            if (highestHeartRate > split.getHeartRate()){
-                highestHeartRate = split.getHeartRate();
-            }
-
-            count++;
-
         }
 
         double avgHeartRate = count > 0 ? (double) totalHeartRate / count : 0;

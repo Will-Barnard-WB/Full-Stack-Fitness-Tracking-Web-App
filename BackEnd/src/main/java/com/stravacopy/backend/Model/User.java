@@ -11,6 +11,7 @@ public class User {
     @Id
     private String id;
     private String name;
+    public String password;
     private List<Workout> workouts;
     private List<Mood> moods;
     private RunningStats userStatistics;
@@ -28,6 +29,10 @@ public class User {
     public void setId(String id)
     {
         this.id = id;
+    }
+
+    public void setPasssword(String password){
+        this.password = password;
     }
 
 

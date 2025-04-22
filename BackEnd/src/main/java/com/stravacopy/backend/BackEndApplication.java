@@ -28,8 +28,8 @@ public class BackEndApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception{
-		//userController.createUser();
-		System.out.println(userController.getWorkoutStats(2, 0));
+		userController.createUser();
+		System.out.println(userController.getWorkoutStats("3", "3"));
 	}
 
 }

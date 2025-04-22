@@ -4,21 +4,42 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Setter
 @Getter
 public class Workout {
 
-    private int id;
+    private String id;
     private LocalDateTime dateTime;
     private List<Split> splits;
     private RunningStats runningStats;
     // Add further attributes as needed
 
-    public Workout(int id)
+    public Workout(String id)
     {
-
+        this.splits = new ArrayList<Split>();
+        LocalDateTime time = LocalDateTime.now();
+        this.splits.add(new Split(time,10,12,13));
+        this.id = id;
     }
 
+    public String getId(){
+        return this.id;
+    }
+
+    @Override
+    public String toString() {
+        return "Workout{" +
+                "id='" + id + '\'' +
+                ", dateTime=" + dateTime +
+                ", splits=" + splits +
+                ", runningStats=" + runningStats +
+                '}';
+    }
+
+    public ArrayList<Split> initiateSplits(){
+
+    }
 }

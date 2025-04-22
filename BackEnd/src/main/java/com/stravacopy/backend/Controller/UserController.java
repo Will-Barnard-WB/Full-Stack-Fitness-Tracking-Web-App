@@ -1,9 +1,6 @@
 package com.stravacopy.backend.Controller;
 
-import com.stravacopy.backend.Model.User;
-import com.stravacopy.backend.Model.Workout;
-import com.stravacopy.backend.Model.Mood;
-import com.stravacopy.backend.Model.RunningStats;
+import com.stravacopy.backend.Model.*;
 import com.stravacopy.backend.Repository.UserRepository;
 import com.stravacopy.backend.Service.MoodService;
 import com.stravacopy.backend.Service.UserService;
@@ -42,11 +39,12 @@ public class UserController {
     {
         User user = new User();
 
-        user.setId("2");
-        user.setName("Steve");
+        user.setId("4");
+        user.setName("Aaron");
+        user.password = "hello";
         List<Mood> moods = new ArrayList<>();
         List<Workout> workouts = new ArrayList<>();
-        Workout workout = new Workout(10);
+        Workout workout = new Workout("4");
         workouts.add(workout);
         user.setMoods(moods);
         user.setWorkouts(workouts);
@@ -60,7 +58,7 @@ public class UserController {
         return userRepository.save(user);
     }
 
-    public User getUserById(int id)
+    public User getUserById(String id)
     {
         return userRepository.findById(id);
     }
@@ -72,10 +70,10 @@ public class UserController {
 
     @GetMapping("/{userId}/workouts/{workoutId}") //not sure on the path here
     public ResponseEntity<RunningStats> getWorkoutStats(
-            @PathVariable int userId,
-            @PathVariable int workoutId) {
+            @PathVariable String userId,
+            @PathVariable String workoutId) {
         Workout workout = userService.getWorkoutByUserIdAndWorkoutId(userId, workoutId);
-
+        System.out.println(workout);
         if (workout != null) {
             RunningStats workoutStats = statsService.generateWorkOutStats(workout);
             return ResponseEntity.ok(workoutStats);
@@ -85,7 +83,7 @@ public class UserController {
     }
 
     @GetMapping("/{userId}/workouts") // again not sure on paths
-    public ResponseEntity<RunningStats> getAllWorkoutStats(@PathVariable int userId) {
+    public ResponseEntity<RunningStats> getAllWorkoutStats(@PathVariable String userId) {
         List<Workout> workouts = userService.getAllWorkoutsForUser(userId);
         if (!workouts.isEmpty()) {
             RunningStats userStats = statsService.generateUserStats(workouts);
@@ -95,7 +93,7 @@ public class UserController {
     }
 
     @PostMapping("/{userId}/mood") // again not sure on paths
-    public ResponseEntity<Mood> getUserMood(@PathVariable int userId, @RequestBody int moodValue) {
+    public ResponseEntity<Mood> getUserMood(@PathVariable String userId, @RequestBody int moodValue) {
         User user = userService.getUserByID(userId);
         if (user != null){
             Mood mood = new Mood(user, moodValue); // change as needed based on chosen implementation
