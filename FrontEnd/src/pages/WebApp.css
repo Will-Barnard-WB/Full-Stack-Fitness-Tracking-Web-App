@@ -489,7 +489,34 @@ input[type="checkbox"] {
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
+.achievement-page {
+    min-height: 100vh;
+    padding: 60px 30px;
+    background-color: #f8fafc;
+    font-family: 'Segoe UI', sans-serif;
+    color: #1e293b;
+}
 
+.achievement {
+    margin-bottom: 30px;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.progress-container {
+    background-color: #e0e0e0;
+    height: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 10px 0;
+}
+
+.progress-bar {
+    background-color: #4caf50;
+    height: 100%;
+    transition: width 0.4s ease;
+}
 .menuButtons button:hover {
   background-color: #2563eb;
   transform: translateY(-2px);
