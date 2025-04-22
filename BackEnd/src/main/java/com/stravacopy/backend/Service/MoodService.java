@@ -1,7 +1,9 @@
 package com.stravacopy.backend.Service;
 
 import com.stravacopy.backend.Model.Mood;
+import org.springframework.stereotype.Service;
 
+@Service
 public class MoodService {
 
 

@@ -1,5 +1,6 @@
 package com.stravacopy.backend.Model;
 
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import java.util.List;
@@ -8,7 +9,7 @@ import java.util.List;
 @Document(collection = "UserDataCollection")
 public class User {
     @Id
-    private int id;
+    private String id;
     private String name;
     private List<Workout> workouts;
     private List<Mood> moods;
@@ -19,12 +20,12 @@ public class User {
     {
     }
 
-    public int getId()
+    public String getId()
     {
         return id;
     }
 
-    public void setId(int id)
+    public void setId(String id)
     {
         this.id = id;
     }
@@ -75,4 +76,15 @@ public class User {
     }
 
     // Getters, setters, constructors
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", workouts=" + workouts +
+                ", moods=" + moods +
+                ", userStatistics=" + userStatistics +
+                '}';
+    }
 }
