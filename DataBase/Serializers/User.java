@@ -7,11 +7,13 @@ public class User {
     private final int id;
     private String name;
     private final List<Workout> workouts;
+    private final List<Mood> moods;
 
-    public User(int id, String Name, List<Workout> workouts) {
+    public User(int id, String Name, List<Workout> workouts, List<Mood> moods) {
         this.id = id;
         this.name = Name;
         this.workouts = workouts;
+        this.moods = moods;
     }
 
     public int getId() {
@@ -30,12 +32,17 @@ public class User {
         return workouts;
     }
 
+    public List<Mood> getMoods() {
+        return workouts;
+    }
+
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", workouts=" + workouts +
+                ", moods=" + moods +
                 '}';
     }
 }
