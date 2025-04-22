@@ -52,12 +52,12 @@ public class StatsService {
         fastest5kTime = GenerateFastestSegments(splits, 5000);
         fastest10kTime = GenerateFastestSegments(splits, 10000);
 
-        // mood stats...
+        workout.setSplitComparisons(compareSplits(splits));
 
         return new RunningStats(totalDistance, avgHeartRate, avgSpeed, fastest1kTime,fastest5kTime,fastest10kTime, highestSpeed, highestHeartRate, 0);
     }
 
-    public RunningStats generateUserStats(List<Workout> workouts){
+    public Stats generateUserStats(List<Workout> workouts){
 
         long totalDistance = 0;
         double totalHeartRate = 0;
@@ -71,9 +71,12 @@ public class StatsService {
         double highestSpeed = 0;
         int highestHeartRate = 0;
 
+        List<RunningStats> workoutStatList = new ArrayList<>();
+
         for (Workout workout: workouts) {
 
-            RunningStats workoutStats = workout.getRunningStats();
+            RunningStats workoutStats = generateWorkOutStats(workout);
+            workoutStatList.add(workoutStats);
 
             long workoutDistance = workoutStats.getTotalDistance();
             double workoutAvgSpeed = workoutStats.getAvgSpeed();
@@ -112,7 +115,8 @@ public class StatsService {
         double avgHeartRate = count > 0 ? totalHeartRate / count : 0;
         double avgSpeed = count > 0 ? totalSpeed / count : 0;
 
-        return new RunningStats(totalDistance, avgHeartRate, avgSpeed, fastest1kTime, fastest5kTime, fastest10kTime, highestSpeed, highestHeartRate, longestDistance);
+        RunningStats runningStats = new RunningStats(totalDistance, avgHeartRate, avgSpeed, fastest1kTime, fastest5kTime, fastest10kTime, highestSpeed, highestHeartRate, longestDistance);
+        return new Stats(runningStats,workoutStatList);
     }
 
     public double GenerateFastestSegments(List<Split> splits, long distance){

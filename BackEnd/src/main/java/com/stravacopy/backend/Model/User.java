@@ -13,6 +13,7 @@ public class User {
     private String name;
     public String password;
     private List<Workout> workouts;
+    private List<RunningStats> workoutStats;
     private List<Mood> moods;
     private RunningStats userStatistics;
     // Add further attributes as needed
@@ -78,6 +79,14 @@ public class User {
     public void setUserStatistics(RunningStats userStatistics)
     {
         this.userStatistics = userStatistics;
+    }
+
+    public List<RunningStats> getWorkoutStats(){
+        return workoutStats;
+    }
+
+    public void setWorkoutStats(List<RunningStats> workoutStats){
+        this.workoutStats = workoutStats;
     }
 
     // Getters, setters, constructors

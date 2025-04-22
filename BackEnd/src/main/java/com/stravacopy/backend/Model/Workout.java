@@ -14,7 +14,7 @@ public class Workout {
     private String id;
     private LocalDateTime dateTime;
     private List<Split> splits;
-    private RunningStats runningStats;
+    private List<SplitComparison> splitComparisons;
     // Add further attributes as needed
 
     public Workout(String id)
@@ -35,7 +35,7 @@ public class Workout {
                 "id='" + id + '\'' +
                 ", dateTime=" + dateTime +
                 ", splits=" + splits +
-                ", runningStats=" + runningStats +
+                ", splitCompareStats=" + splitComparisons +
                 '}';
     }
 

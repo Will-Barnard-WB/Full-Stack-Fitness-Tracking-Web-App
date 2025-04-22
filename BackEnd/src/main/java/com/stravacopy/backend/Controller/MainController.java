@@ -83,8 +83,9 @@ public class MainController {
         User user = userService.getUserByID(userId);
         List<Workout> workouts = userService.getAllWorkoutsForUser(userId);
         if (!workouts.isEmpty()) {
-            RunningStats userStats = statsService.generateUserStats(workouts);
-            user.setUserStatistics(userStats);
+            Stats stats = statsService.generateUserStats(workouts);
+            user.setUserStatistics(stats.getRunningStats());
+            user.setWorkoutStats(stats.getAllWorkoutStats());
             return ResponseEntity.ok(user);
         }
         return ResponseEntity.ok(new User()); // NOT SURE WHAT TO RETURN?
