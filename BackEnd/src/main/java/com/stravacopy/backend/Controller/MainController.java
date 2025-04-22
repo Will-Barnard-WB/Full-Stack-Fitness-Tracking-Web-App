@@ -62,21 +62,6 @@ public class MainController {
         return userRepository.findByName(name);
     }
 
-    // GET THE INDIVIUDAL WORKOUT STATS STORED WITHIN USER OBJECT?????
-
-    @GetMapping("/{userId}/workouts/{workoutId}")
-    public ResponseEntity<RunningStats> getWorkoutStats(
-            @PathVariable String userId,
-            @PathVariable String workoutId) {
-        Workout workout = userService.getWorkoutByUserIdAndWorkoutId(userId, workoutId);
-        if (workout != null) {
-            RunningStats workoutStats = statsService.generateWorkOutStats(workout);
-            return ResponseEntity.ok(workoutStats);
-        } else {
-            return ResponseEntity.notFound().build();
-        }
-    }
-
 
     @GetMapping("/{userId}/data")
     public ResponseEntity<User> getUserData(@PathVariable String userId){

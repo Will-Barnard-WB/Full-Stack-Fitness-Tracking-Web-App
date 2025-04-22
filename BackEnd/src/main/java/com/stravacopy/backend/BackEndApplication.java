@@ -20,8 +20,6 @@ public class BackEndApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception{
-		//mainController.createUser();
-		System.out.println(mainController.getWorkoutStats("3", "3"));
 	}
 
 }
