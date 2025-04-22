@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -37,8 +38,25 @@ public class UserController {
         return userRepository.findAll();
     }
 
+    public void createUser()
+    {
+        User user = new User();
+
+        user.setId("2");
+        user.setName("Steve");
+        List<Mood> moods = new ArrayList<>();
+        List<Workout> workouts = new ArrayList<>();
+        Workout workout = new Workout(10);
+        workouts.add(workout);
+        user.setMoods(moods);
+        user.setWorkouts(workouts);
+        addUser(user);
+        System.out.println(getAllUsers());
+    }
+
     public User addUser(User user)
     {
+
         return userRepository.save(user);
     }
 
@@ -57,6 +75,7 @@ public class UserController {
             @PathVariable int userId,
             @PathVariable int workoutId) {
         Workout workout = userService.getWorkoutByUserIdAndWorkoutId(userId, workoutId);
+
         if (workout != null) {
             RunningStats workoutStats = statsService.generateWorkOutStats(workout);
             return ResponseEntity.ok(workoutStats);
@@ -88,6 +107,9 @@ public class UserController {
             return ResponseEntity.notFound().build();
         }
     }
+
+
+
 
 
 

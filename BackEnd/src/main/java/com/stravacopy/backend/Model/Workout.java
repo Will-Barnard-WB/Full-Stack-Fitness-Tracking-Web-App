@@ -16,7 +16,7 @@ public class Workout {
     private RunningStats runningStats;
     // Add further attributes as needed
 
-    public Workout()
+    public Workout(int id)
     {
 
     }

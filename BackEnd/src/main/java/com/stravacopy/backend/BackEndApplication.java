@@ -24,22 +24,12 @@ public class BackEndApplication implements CommandLineRunner {
 
 		SpringApplication.run(BackEndApplication.class, args);
 
-		System.out.println("Hello World!");
 	}
 
 	@Override
 	public void run(String... args) throws Exception{
-		User user = new User();
-
-		user.setId("1");
-		user.setName("John");
-		List<Mood> moods = new ArrayList<>();
-		List<Workout> workouts = new ArrayList<>();
-		user.setMoods(moods);
-		user.setWorkouts(workouts);
-		userController.addUser(user);
-		System.out.println(userController.getAllUsers());
-
+		//userController.createUser();
+		System.out.println(userController.getWorkoutStats(2, 0));
 	}
 
 }
