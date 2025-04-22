@@ -11,6 +11,7 @@ public class UserAdapter implements JsonDeserializer<User>, JsonSerializer<User>
     private final String ID = "id";
     private final String NAME = "name";
     private final String WORKOUTS = "workouts";
+    private final String MOODS = "moods";
 
     @Override
     public User deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
@@ -27,8 +28,9 @@ public class UserAdapter implements JsonDeserializer<User>, JsonSerializer<User>
         int id = object.get(ID).getAsInt();
         String name = object.get(NAME).getAsString();
         List<Workout> workouts = context.deserialize(object.getAsJsonArray(WORKOUTS), new TypeToken<List<Workout>>() {}.getType());
+        List<Mood> workouts = context.deserialize(object.getAsJsonArray(MOODS), new TypeToken<List<Workout>>() {}.getType());
 
-        return new User(id, name, workouts);
+        return new User(id, name, workouts, moods);
     }
 
     @Override
@@ -43,6 +45,12 @@ public class UserAdapter implements JsonDeserializer<User>, JsonSerializer<User>
             workouts.add(context.serialize(workout, Workout.class));
         }
         object.add(WORKOUTS, workouts);
+
+        JsonArray moods = new JsonArray();
+        for (Mood moods : user.getMoods()) {
+            workouts.add(context.serialize(mood, Mood.class));
+        }
+        object.add(MOODS, moods);
 
         return object;
     }
