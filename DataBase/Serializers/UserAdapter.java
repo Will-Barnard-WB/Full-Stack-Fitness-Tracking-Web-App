@@ -48,7 +48,7 @@ public class UserAdapter implements JsonDeserializer<User>, JsonSerializer<User>
 
         JsonArray moods = new JsonArray();
         for (Mood moods : user.getMoods()) {
-            workouts.add(context.serialize(mood, Mood.class));
+            moods.add(context.serialize(mood, Mood.class));
         }
         object.add(MOODS, moods);
 
