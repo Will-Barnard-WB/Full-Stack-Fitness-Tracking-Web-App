@@ -4,24 +4,26 @@ import Layout from "./pages/Layout";
 import SignIn from "./pages/SignIn";
 import TakeMood from "./pages/TakeMood";
 import MainWindow from "./pages/MainWindow";
-import AchivementPage from "./pages/AchivementPage";
+import AchievementPage from "./pages/AchievementPage";
 import GoalPage from "./pages/GoalPage";
 import GraphsPage from "./pages/GraphsPage";
 import MoodPage from "./pages/MoodPage";
 import Settings from "./pages/Settings";
+import SignUp from "./pages/SignUp";
 
 export default function App() {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={<SignIn />} /> {/* HomePage as the entry point */}
-                <Route path="/TakeMood" element={<TakeMood />} /> {/* Login Page before Layout */}
+                <Route path="/" element={<SignIn />} />
+                <Route path="/SignUp" element={<SignUp />} />
 
-                {/* Layout with child routes */}
-                <Route path="/Layout" element={<Layout />}>
-                    <Route index element={<MainWindow />} /> {/* Default child when in /layout */}
+                <Route path="/TakeMood" element={<TakeMood />} />
+
+                <Route path="/layout" element={<Layout />}>
+                    <Route index element={<MainWindow />} />
                     <Route path="MainWindow" element={<MainWindow />} />
-                    <Route path="AchivementPage" element={<AchivementPage />} />
+                    <Route path="AchievementPage" element={<AchievementPage />} />
                     <Route path="GoalPage" element={<GoalPage />} />
                     <Route path="GraphsPage" element={<GraphsPage />} />
                     <Route path="MoodPage" element={<MoodPage />} />
