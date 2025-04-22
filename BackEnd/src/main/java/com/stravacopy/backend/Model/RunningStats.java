@@ -1,18 +1,21 @@
 package com.stravacopy.backend.Model;
 
+import lombok.Getter;
+
 import java.util.List;
 import java.util.ArrayList;
 
+@Getter
 public class RunningStats {
-    private long totalDistance;
-    private double avgHeartRate;
-    private double avgSpeed;
-    private double fastest1kPace;
-    private double fastest5kPace;
-    private double fastest10kPace;
-    private double highestSpeed;
-    private int highestHeartRate;
-    private double longestDistance;
+    private final long totalDistance;
+    private final double avgHeartRate;
+    private final double avgSpeed;
+    private final double fastest1kPace;
+    private final double fastest5kPace;
+    private final double fastest10kPace;
+    private final double highestSpeed;
+    private final int highestHeartRate;
+    private final double longestDistance;
 
     public RunningStats(long totalDistance, double avgHeartRate, double avgSpeed, double fastest1kPace, double fastest5kPace, double fastest10kPace, double highestSpeed, int highestHeartRate, double longestDistance) {
 
@@ -46,43 +49,5 @@ public class RunningStats {
         return comparisons;
     }
 
-    public long getTotalDistance() {
-        return totalDistance;
-    }
-
-    public double getAvgHeartRate() {
-        return avgHeartRate;
-    }
-
-    public double getAvgSpeed() {
-        return avgSpeed;
-    }
-
-    public double getFastest1kPace() {
-        return fastest1kPace;
-    }
-
-    public double getFastest5kPace() {
-        return fastest5kPace;
-    }
-
-    public double getFastest10kPace() {
-        return fastest10kPace;
-    }
-
-    public double getHighestSpeed() {
-        return highestSpeed;
-    }
-
-    public int getHighestHeartRate() {
-        return highestHeartRate;
-    }
-
-    public double getLongestDistance() {
-        return longestDistance;
-    }
-
-
-    //additional setters and getters
 }
 

@@ -1,8 +1,13 @@
 package com.stravacopy.backend.Model;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.time.LocalDateTime;
 import java.util.List;
 
+@Setter
+@Getter
 public class Workout {
 
     private int id;
@@ -16,41 +21,4 @@ public class Workout {
 
     }
 
-    public List<Split> getSplits() {
-        return splits;
-    }
-
-    public RunningStats getRunningStats() {
-        return runningStats;
-    }
-
-    public int getId()
-    {
-        return id;
-    }
-
-    public void setId(int id)
-    {
-        this.id = id;
-    }
-
-    public LocalDateTime getDateTime()
-    {
-        return dateTime;
-    }
-
-    public void setDateTime(LocalDateTime dateTime)
-    {
-        this.dateTime = dateTime;
-    }
-
-    public void setRunningStats(RunningStats runningStats)
-    {
-        this.runningStats = runningStats;
-    }
-
-    public void setSplits(List<Split> splits)
-    {
-        this.splits = splits;
-    }
 }
