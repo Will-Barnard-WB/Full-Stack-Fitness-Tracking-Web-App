@@ -1,32 +1,44 @@
 package com.stravacopy.backend.Model;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.data.mongodb.core.aggregation.ArrayOperators;
 
 import java.time.LocalDateTime;
 
-public class Split {
+@Setter
+@Getter
+public class Split
+{
 
-    private LocalDateTime timeStamp;
-    private int longitude;
-    private int latitude;
-    private int altitude;
-    private int distance;
-    private int speed;
-    private int cadence;
-    private int heartRate;
+    //private LocalDateTime timeStamp;
+    private Double longitude;
+    private Double latitude;
+    private Double altitude;
+    private Double distance;
+    private Double speed;
+    private Double cadence;
 
-    public Split(LocalDateTime timeStamp, int distance, int speed, int heartRate)
+    private Double heartRate;
+
+    public Split( double distance, double speed, double heartRate)
     {
-        this.timeStamp = timeStamp;
+        //this.timeStamp = timeStamp;
         this.distance = distance;
         this.speed = speed;
         this.heartRate = heartRate;
 
     }
 
-    public Split(LocalDateTime timeStamp, int longitude, int latitude, int altitude,
-                 int distance, int speed,int cadence, int heartRate) {
-        this.timeStamp = timeStamp;
+    public Split()
+    {
+
+    }
+
+    public Split( double longitude, double latitude, double altitude,
+                 double distance, double speed, double cadence, double heartRate)
+    {
+        //this.timeStamp = timeStamp;
         this.longitude = longitude;
         this.latitude = latitude;
         this.altitude = altitude;
@@ -36,30 +48,29 @@ public class Split {
         this.heartRate = heartRate;
     }
 
-    public int getDistance() {
+    public double getDistance()
+    {
         return distance;
     }
 
-    public int getSpeed() {
+    public double getSpeed()
+    {
         return speed;
     }
 
-    public int getHeartRate() {
-        return heartRate;
-    }
-
     //public Integer getCadence() {
-        //return cadence;
+    //return cadence;
     //}
 
-    public LocalDateTime getTimeStamp() {
-        return timeStamp;
-    }
+    //public LocalDateTime getTimeStamp()
+    //{
+    //    return timeStamp;
+    //}
 
     @Override
-    public String toString() {
+    public String toString()
+    {
         return "Split{" +
-                "timeStamp=" + timeStamp +
                 ", Longitude=" + longitude +
                 ", Latitude=" + latitude +
                 ", Altitude=" + altitude +
