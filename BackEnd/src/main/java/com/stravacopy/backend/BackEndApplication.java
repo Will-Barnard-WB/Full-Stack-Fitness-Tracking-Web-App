@@ -23,6 +23,8 @@ public class BackEndApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception{
 		System.out.println(mainController.getUserData("2"));
+		System.out.println(mainController.getLeaderboard("fastest"));
+		mainController.addUserMood("1", 5);
 	}
 
 }
