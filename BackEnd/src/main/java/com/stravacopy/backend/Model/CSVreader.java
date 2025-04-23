@@ -1,3 +1,5 @@
+package com.stravacopy.backend.Model;
+
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvValidationException;
 import com.stravacopy.backend.Model.Split;
@@ -13,7 +15,7 @@ public class CSVreader
 {
     private Workout workout;
 
-    public ReadCSVWithHeaders(String filename)
+    public CSVreader(String filename)
     {
         workout = new Workout("1");
 

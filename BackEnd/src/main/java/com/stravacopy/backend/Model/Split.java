@@ -68,6 +68,39 @@ public class Split
     //    return timeStamp;
     //}
 
+
+    public void setAltitude(Double altitude) {
+        this.altitude = altitude;
+    }
+
+    public void setCadence(Double cadence) {
+        this.cadence = cadence;
+    }
+
+    public void setDistance(Double distance) {
+        this.distance = distance;
+    }
+
+    public void setHeartRate(Double heartRate) {
+        this.heartRate = heartRate;
+    }
+
+    public void setLatitude(Double latitude) {
+        this.latitude = latitude;
+    }
+
+    public void setLongitude(Double longitude) {
+        this.longitude = longitude;
+    }
+
+    public void setSpeed(Double speed) {
+        this.speed = speed;
+    }
+
+    public void setSumDuration(Double sumDuration) {
+        this.sumDuration = sumDuration;
+    }
+
     @Override
     public String toString()
     {

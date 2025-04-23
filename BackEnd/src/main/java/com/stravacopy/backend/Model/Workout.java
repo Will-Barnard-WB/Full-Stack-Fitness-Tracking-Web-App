@@ -39,8 +39,7 @@ public class Workout {
                 '}';
     }
 
-    public ArrayList<Split> initiateSplits(){
-        ArrayList<Split> emptySplits = new ArrayList<Split>(); // ADD SPLITS HERE!!!
-        return emptySplits;
+    public void addSplit(Split split){
+        splits.add(split);
     }
 }
