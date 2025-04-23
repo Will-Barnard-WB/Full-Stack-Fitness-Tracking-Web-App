@@ -31,20 +31,27 @@ public class MainController {
         return userRepository.findAll();
     }
 
-    public void createUser()
-    {
-        // USED FOR US TO MANUALLY ADD USERS TO DATABASE
+    public void createUser() {
+
+        List<Workout> workouts = new ArrayList<>();
+
+        for (int i = 50; i < 75; i++) {
+
+            CSVreader csvData = new CSVreader("/Users/willbarnard/Downloads/resources/factivity" + (i + 100) + "_metrics.csv", String.valueOf(i));
+            Workout workout = csvData.getWorkout();
+            workouts.add(workout);
+        }
+
         User user = new User();
         user.setId("4");
-        user.setName("Aaron");
-        user.password = "hello";
+        user.setName("Dylan");
+        user.password ="123456789";
         List<Mood> moods = new ArrayList<>();
-        List<Workout> workouts = new ArrayList<>();
-        Workout workout = new Workout("4");
-        workouts.add(workout);
         user.setMoods(moods);
         user.setWorkouts(workouts);
+
         addUser(user);
+
     }
 
     public User addUser(User user)

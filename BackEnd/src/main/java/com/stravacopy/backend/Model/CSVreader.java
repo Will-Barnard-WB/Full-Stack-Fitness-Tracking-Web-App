@@ -15,9 +15,9 @@ public class CSVreader
 {
     private Workout workout;
 
-    public CSVreader(String filename)
+    public CSVreader(String filename, String workoutId)
     {
-        workout = new Workout("1");
+        workout = new Workout(workoutId);
 
         String filePath = filename;
         String[] expectedHeaders = {"directCorrectedElevation", "directDoubleCadence", "directTimestamp", "directLatitude", "sumDistance",
@@ -52,6 +52,8 @@ public class CSVreader
                                 split.setAltitude(converter(line[index]));
                             case 1:
                                 split.setCadence(converter(line[index]));
+                            case 2:
+                                split.setTimeStamp(converter(line[index]));
                             case 3:
                                 split.setLatitude(converter(line[index]));
                             case 4:

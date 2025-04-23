@@ -6,6 +6,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.sql.SQLOutput;
+
 @SpringBootApplication
 public class BackEndApplication implements CommandLineRunner {
 
@@ -20,6 +22,7 @@ public class BackEndApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception{
+		System.out.println(mainController.getUserData("2"));
 	}
 
 }

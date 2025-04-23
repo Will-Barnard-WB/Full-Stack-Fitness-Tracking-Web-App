@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 public class Split
 {
 
-    //private LocalDateTime timeStamp;
+    private Double timeStamp;
     private Double longitude;
     private Double latitude;
     private Double altitude;
@@ -36,10 +36,10 @@ public class Split
 
     }
 
-    public Split( double longitude, double latitude, double altitude,
+    public Split(double timeStamp, double longitude, double latitude, double altitude,
                  double distance, double speed, double cadence, double heartRate)
     {
-        //this.timeStamp = timeStamp;
+        this.timeStamp = timeStamp;
         this.longitude = longitude;
         this.latitude = latitude;
         this.altitude = altitude;
@@ -101,6 +101,14 @@ public class Split
         this.sumDuration = sumDuration;
     }
 
+    public void setTimeStamp(Double timeStamp){
+        this.timeStamp = timeStamp;
+    }
+
+    public Double getTimeStamp(){
+        return this.timeStamp;
+    }
+
     @Override
     public String toString()
     {
@@ -112,6 +120,10 @@ public class Split
                 ", speed=" + speed +
                 ", heartRate=" + heartRate +
                 '}';
+    }
+
+    public Double getHeartRate() {
+        return this.heartRate;
     }
 
     // Add further attributes as needed

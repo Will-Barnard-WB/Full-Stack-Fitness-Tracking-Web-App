@@ -16,15 +16,15 @@ public class StatsService {
     public RunningStats generateWorkOutStats(Workout workout) {
         List<Split> splits = workout.getSplits();
 
-        long totalDistance = 0;
-        int totalHeartRate = 0;
-        int totalSpeed = 0;
-        int count = 0;
+        double totalDistance = 0;
+        double totalHeartRate = 0;
+        double totalSpeed = 0;
+        double count = 0;
         double fastest1kTime = 0;
         double fastest5kTime = 0;
         double fastest10kTime = 0;
         double highestSpeed = 0;
-        int highestHeartRate = 0;
+        double highestHeartRate = 0;
 
         if (splits != null) {
             for (Split split : splits) {
@@ -59,17 +59,17 @@ public class StatsService {
 
     public Stats generateUserStats(List<Workout> workouts){
 
-        long totalDistance = 0;
+        double totalDistance = 0;
         double totalHeartRate = 0;
         double totalSpeed = 0;
-        int count = 0;
+        double count = 0;
 
         double fastest1kTime = 0;
         double fastest5kTime = 0;
         double fastest10kTime = 0;
         double longestDistance = 0;
         double highestSpeed = 0;
-        int highestHeartRate = 0;
+        double highestHeartRate = 0;
 
         List<RunningStats> workoutStatList = new ArrayList<>();
 
@@ -78,10 +78,10 @@ public class StatsService {
             RunningStats workoutStats = generateWorkOutStats(workout);
             workoutStatList.add(workoutStats);
 
-            long workoutDistance = workoutStats.getTotalDistance();
+            double workoutDistance = workoutStats.getTotalDistance();
             double workoutAvgSpeed = workoutStats.getAvgSpeed();
             double workoutMaxSpeed = workoutStats.getHighestSpeed();
-            int workoutHighestHeartRate = workoutStats.getHighestHeartRate();
+            double workoutHighestHeartRate = workoutStats.getHighestHeartRate();
             double workout1kTime = workoutStats.getFastest1kPace();
             double workout5kTime = workoutStats.getFastest5kPace();
             double workout10kTime = workoutStats.getFastest10kPace();
@@ -120,18 +120,18 @@ public class StatsService {
     }
 
     public double GenerateFastestSegments(List<Split> splits, long distance){
-        Duration fastestTime = null;
+        Double fastestTime = null;
 
         for (int start = 0; start < splits.size(); start++) {
             long totalDistance = 0;
-            LocalDateTime startTime = splits.get(start).getTimeStamp();
+            Double startTime = splits.get(start).getTimeStamp();
 
             for (int end = start; end < splits.size(); end++) {
                 totalDistance += splits.get(end).getDistance();
 
                 if (totalDistance >= distance) {
-                    LocalDateTime endTime = splits.get(end).getTimeStamp();
-                    Duration segmentTime = Duration.between(startTime, endTime);
+                    Double endTime = splits.get(end).getTimeStamp();
+                    Double segmentTime = endTime - startTime;
 
                     if (fastestTime == null || segmentTime.compareTo(fastestTime) < 0) {
                         fastestTime = segmentTime;
@@ -143,7 +143,7 @@ public class StatsService {
         }
 
         assert fastestTime != null;
-        return fastestTime.toMinutes();
+        return fastestTime;
 
     }
     public Leaderboard getLeaderboardByType(String type, List<User> users) {
@@ -184,11 +184,11 @@ public class StatsService {
             Split previous = splits.get(i - 1);
             Split current = splits.get(i);
 
-            int speedChange = current.getSpeed() - previous.getSpeed();
-            int heartRateChange = current.getHeartRate() - previous.getHeartRate();
-            int distanceChange = current.getDistance() - previous.getDistance();
+            double speedChange = current.getSpeed() - previous.getSpeed();
+            double heartRateChange = current.getHeartRate() - previous.getHeartRate();
+            double distanceChange = current.getDistance() - previous.getDistance();
 
-            comparisons.add(new SplitComparison(i, speedChange, heartRateChange, distanceChange));
+            comparisons.add(new SplitComparison((double) i, speedChange, heartRateChange, distanceChange));
         }
 
         return comparisons;

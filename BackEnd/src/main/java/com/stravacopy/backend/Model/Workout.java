@@ -42,4 +42,12 @@ public class Workout {
     public void addSplit(Split split){
         splits.add(split);
     }
+
+    public void setSplitComparisons(List<SplitComparison> splitComparisons) {
+        this.splitComparisons = splitComparisons;
+    }
+
+    public List<Split> getSplits(){
+        return this.splits;
+    }
 }
