@@ -96,9 +96,9 @@ public class MainController {
         }
     }
 
-    @PostMapping("/{id}/workouts")
-    public ResponseEntity<String> addWorkout(@PathVariable String id, @RequestBody Workout workout) {
-        User user = userRepository.findById(id);
+    @PostMapping("/{userId}/workouts")
+    public ResponseEntity<String> addWorkout(@PathVariable String userId, @RequestBody Workout workout) {
+        User user = userRepository.findById(userId);
 
         if (user != null) {
 
