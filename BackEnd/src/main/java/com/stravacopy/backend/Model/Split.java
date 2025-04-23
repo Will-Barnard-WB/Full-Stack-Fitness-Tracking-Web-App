@@ -18,6 +18,7 @@ public class Split
     private Double distance;
     private Double speed;
     private Double cadence;
+    private Double sumDuration;
 
     private Double heartRate;
 
