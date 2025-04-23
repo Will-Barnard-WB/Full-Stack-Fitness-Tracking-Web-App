@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/users") // Base URL for user-related requests
@@ -77,6 +78,8 @@ public class MainController {
 
     }
 
+
+
     @PostMapping("/{userId}/mood")
     public ResponseEntity<String> addUserMood(@PathVariable String userId, @RequestBody int moodValue) {
         User user = userService.getUserByID(userId);
@@ -89,6 +92,23 @@ public class MainController {
             return ResponseEntity.ok("Mood saved successfully.");
         }
         else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @PostMapping("/{id}/workouts")
+    public ResponseEntity<String> addWorkout(@PathVariable String id, @RequestBody Workout workout) {
+        User user = userRepository.findById(id);
+
+        if (user != null) {
+
+            List<Workout> workouts = user.getWorkouts();
+            if (workouts == null) workouts = new ArrayList<>();
+            workouts.add(workout);
+            user.setWorkouts(workouts);
+            userRepository.save(user);
+            return ResponseEntity.ok("Workout added.");
+        } else {
             return ResponseEntity.notFound().build();
         }
     }
