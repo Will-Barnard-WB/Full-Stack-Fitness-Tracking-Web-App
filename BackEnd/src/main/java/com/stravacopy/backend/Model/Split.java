@@ -23,6 +23,19 @@ public class Split {
         this.heartRate = heartRate;
 
     }
+
+    public Split(LocalDateTime timeStamp, int longitude, int latitude, int altitude,
+                 int distance, int speed,int cadence, int heartRate) {
+        this.timeStamp = timeStamp;
+        this.longitude = longitude;
+        this.latitude = latitude;
+        this.altitude = altitude;
+        this.distance = distance;
+        this.speed = speed;
+        this.cadence = cadence;
+        this.heartRate = heartRate;
+    }
+
     public int getDistance() {
         return distance;
     }
