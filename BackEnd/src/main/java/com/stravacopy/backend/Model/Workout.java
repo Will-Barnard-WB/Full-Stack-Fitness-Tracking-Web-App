@@ -21,7 +21,7 @@ public class Workout {
     {
         this.splits = new ArrayList<Split>();
         LocalDateTime time = LocalDateTime.now();
-        this.splits.add(new Split(time,10,12,13));
+        this.splits.add(new Split(10,12,13));
         this.id = id;
     }
 
