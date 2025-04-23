@@ -7,12 +7,12 @@ import java.time.LocalDateTime;
 public class Split {
 
     private LocalDateTime timeStamp;
-    private Integer Longitude;
-    private Integer Latitude;
-    private Integer Altitude;
+    private int longitude;
+    private int latitude;
+    private int altitude;
     private int distance;
     private int speed;
-    //private int cadence;
+    private int cadence;
     private int heartRate;
 
     public Split(LocalDateTime timeStamp, int distance, int speed, int heartRate)
@@ -23,15 +23,15 @@ public class Split {
         this.heartRate = heartRate;
 
     }
-    public Integer getDistance() {
+    public int getDistance() {
         return distance;
     }
 
-    public Integer getSpeed() {
+    public int getSpeed() {
         return speed;
     }
 
-    public Integer getHeartRate() {
+    public int getHeartRate() {
         return heartRate;
     }
 
@@ -47,9 +47,9 @@ public class Split {
     public String toString() {
         return "Split{" +
                 "timeStamp=" + timeStamp +
-                ", Longitude=" + Longitude +
-                ", Latitude=" + Latitude +
-                ", Altitude=" + Altitude +
+                ", Longitude=" + longitude +
+                ", Latitude=" + latitude +
+                ", Altitude=" + altitude +
                 ", distance=" + distance +
                 ", speed=" + speed +
                 ", heartRate=" + heartRate +
