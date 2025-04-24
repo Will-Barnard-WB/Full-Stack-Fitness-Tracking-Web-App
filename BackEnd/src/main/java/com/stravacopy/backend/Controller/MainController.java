@@ -86,7 +86,10 @@ public class MainController {
     }
 
 
-
+    @GetMapping("/hello")
+    public String sayHello() {
+        return "Hello from Spring Boot!";
+    }
 
 
     @PostMapping("/{userId}/mood")

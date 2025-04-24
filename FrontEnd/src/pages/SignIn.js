@@ -37,6 +37,10 @@ function SignIn() {
         <div className="login">
             <h1 className='title'>Strava Ripoff</h1>
             <h3>Enter user details</h3>
+            <a href="/backend-test" style={{ display: 'block', marginTop: '1rem', color: 'blue' }}>
+                🔧 Test Backend Connection
+            </a>
+
             <label htmlFor='username'>Username:</label>
             <input type='text' id='username' placeholder='Username' onChange={(e) => setUsername(e.target.value)} />
             <label htmlFor='password'>Password:</label>
