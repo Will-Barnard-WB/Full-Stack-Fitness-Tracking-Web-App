@@ -88,7 +88,7 @@ public class MainController {
 
     @GetMapping("/hello")
     public String sayHello() {
-        return "Hello from Spring Boot!";
+        return "Hello from Spring Boot! -- Aaron Godwood";
     }
 
 
