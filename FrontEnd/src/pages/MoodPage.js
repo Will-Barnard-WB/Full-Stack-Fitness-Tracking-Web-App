@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+
+import { useNavigate } from 'react-router-dom';
 import {
     LineChart,
     Line,
@@ -11,10 +13,15 @@ import {
 } from 'recharts';
 
 const MoodPage = () => {
+
+    const navigate = useNavigate();
+
     const [data, setData] = useState([]);
 
     const clearHistory = () => {
-        localStorage.clear();
+        localStorage.removeItem("sliderValues");
+        localStorage.removeItem("sliderDates");
+
         window.location.reload();
     };
 
@@ -54,6 +61,10 @@ const MoodPage = () => {
                 </ResponsiveContainer>
             )}
             <button onClick={clearHistory}>Clear History</button>
+
+            <button className='back' onClick={() => navigate('/Layout/MainWindow')}>Back</button>
+
+
         </div>
     );
 };

@@ -1,7 +1,9 @@
 import React from 'react';
-import './ProgressBar.css'; 
+import { useNavigate } from "react-router-dom";
+import './WebApp.css';
 
 const AchievementPage = () => {
+    const navigate = useNavigate();
 
     const data = {
         distance: 73.6,
@@ -15,9 +17,7 @@ const AchievementPage = () => {
         { title: "Climb 1000m", target: 1000, unit: "m", type: "altitude"},
         { title: "7-Day Login Streak", target: 7, unit: "days", type: "streak" },
     ];
-    //Can add more achievements later on in stage 2 if needed. Assuming that dates or timestamps will be included
-    //in the backend data which should allow streak to be manually calculated if needed.
-
+    
     const mergedAchievements= achievements.map((achievement) => {
         const current = data[achievement.type] || 0;
         const progress = Math.min((current / achievement.target) * 100, 100);
@@ -29,7 +29,7 @@ const AchievementPage = () => {
     });
 
     return (
-        <div className="page">
+        <div className="achievement-page">
             <h1>Achievements</h1>
             {mergedAchievements.map((achievement, index) => {
                 return (
@@ -45,6 +45,7 @@ const AchievementPage = () => {
                     </div>
                 )
             })}
+            <button className='back' onClick={() => navigate('/Layout/MainWindow')}>Back</button>
         </div>
     )
 }
