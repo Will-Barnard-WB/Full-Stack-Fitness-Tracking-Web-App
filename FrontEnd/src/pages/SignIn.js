@@ -30,10 +30,6 @@ function SignIn() {
         }
     }
 
-    function goToSignUp() {
-        navigate("/signup");
-    }
-
     return (
         <div className="login">
             <h1 className='title'>Strava Ripoff</h1>
@@ -43,7 +39,6 @@ function SignIn() {
             <label htmlFor='password'>Password:</label>
             <input type='password' id='password' placeholder='Password' onChange={(e) => setPassword(e.target.value)} />
             <button type='submit' onClick={handleLogin}>Sign in</button>
-            <button type='button' onClick={goToSignUp}>Sign up</button>
         </div>
     );
 }
