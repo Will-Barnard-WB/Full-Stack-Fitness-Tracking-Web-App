@@ -4,9 +4,23 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class Mood {
-    private int mood; // I think mood should be more dimensional, not just an integer
-    private LocalDateTime dateTime;
+    private int mood;
+
+    public Mood(int mood) {
+        this.mood = mood;
+    }
+
+    // Getter for mood field
+    public int getMood() {
+        return mood;
+    }
+
+    // Setter for mood field
+    public void setMood(int mood) {
+        this.mood = mood;
+    }
 
 
-    // Add further attributes as needed
+
 }
+
