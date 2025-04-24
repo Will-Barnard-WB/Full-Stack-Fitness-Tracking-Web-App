@@ -87,6 +87,8 @@ public class MainController {
 
 
 
+
+
     @PostMapping("/{userId}/mood")
     public ResponseEntity<String> addUserMood(@PathVariable String userId, @RequestBody int moodValue) {
         User user = userService.getUserByID(userId);
@@ -118,6 +120,25 @@ public class MainController {
         } else {
             return ResponseEntity.notFound().build();
         }
+    }
+
+    @GetMapping("/{userId}/workouts/{workoutId}")
+        public ResponseEntity<Workout> getWorkoutDetails(@PathVariable String userId, @PathVariable String workoutId)
+    {
+        User user = userService.getUserByID(userId);
+
+        if (user != null)
+        {
+            List<Workout> workouts = user.getWorkouts();
+            for (Workout workout : workouts)
+            {
+                if (workout.getId().equals(workoutId))
+                {
+                    return ResponseEntity.ok(workout);
+                }
+            }
+        }
+        return ResponseEntity.notFound().build();
     }
 
     @GetMapping("/Leaderboard")
