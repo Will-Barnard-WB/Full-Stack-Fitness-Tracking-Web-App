@@ -1,36 +1,46 @@
 import { useNavigate } from "react-router-dom";
 import './WebApp.css';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 
-import { useEffect, useState } from 'react';
-
-function UsersList() {
-    const [users, setUsers] = useState([]);
+const UserProfile = ({ userId }) => {
+    const [user, setUser] = useState(null);
 
     useEffect(() => {
-        fetch('http://localhost:8080/api/users')
-            .then(response => response.json())
-            .then(data => {
-                setUsers(data); // array of user objects
-            })
-            .catch(error => console.error('Error fetching users:', error));
-    }, []);
+        axios.get(`http://138.38.223.182:8080/users/${userId}/data`)
+            .then(response => setUser(response.data))
+            .catch(error => console.error('Error fetching user:', error));
+    }, [userId]);
+
+    if (!user) return <p>Loading user...</p>;
 
     return (
         <div>
-            <h1>User List</h1>
+            <h2>User Profile: {user.name}</h2>
+            <p><strong>ID:</strong> {user.id}</p>
+            <h3>Workouts:</h3>
             <ul>
-                {users.map((user, index) => (
-                    <li key={index}>
-                        <strong>{user.username}</strong> - {user.email} - Age: {user.age}
-                    </li>
+                {user.workouts && user.workouts.map((workout, idx) => (
+                    <li key={idx}>{JSON.stringify(workout)}</li>
                 ))}
             </ul>
+            <h3>Workout Stats:</h3>
+            <ul>
+                {user.workoutStats && user.workoutStats.map((stat, idx) => (
+                    <li key={idx}>{JSON.stringify(stat)}</li>
+                ))}
+            </ul>
+            <h3>Moods:</h3>
+            <ul>
+                {user.moods && user.moods.map((mood, idx) => (
+                    <li key={idx}>{JSON.stringify(mood)}</li>
+                ))}
+            </ul>
+            <h3>User Statistics:</h3>
+            <pre>{JSON.stringify(user.userStatistics, null, 2)}</pre>
         </div>
     );
-}
-
-export default UsersList;
-
+};
 
 export default function MainWindow() {
     const navigate = useNavigate();
@@ -44,6 +54,7 @@ export default function MainWindow() {
                 <button onClick={() => navigate("/Layout/GraphsPage")}>Graphs</button>
                 <button onClick={() => navigate("/Layout/MoodPage")}>Mood Tracker</button>
                 <button onClick={() => navigate("/Layout/Settings")}>Settings</button>
+                <UserProfile userId="1"/>
             </div>
         </div>
     );
