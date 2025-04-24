@@ -7,6 +7,7 @@ import java.time.Duration;
 
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
@@ -14,7 +15,14 @@ import java.util.List;
 public class StatsService {
 
     public RunningStats generateWorkOutStats(Workout workout) {
+        if (workout == null) {
+            return new RunningStats((double) 0, 0, 0, 0, 0, 0, 0, (double) 0, 0);
+        }
+
         List<Split> splits = workout.getSplits();
+        if (splits == null) {
+            splits = Collections.emptyList();
+        }
 
         double totalDistance = 0;
         double totalHeartRate = 0;
@@ -26,23 +34,24 @@ public class StatsService {
         double highestSpeed = 0;
         double highestHeartRate = 0;
 
-        if (splits != null) {
-            for (Split split : splits) {
-
-                totalDistance += split.getDistance();
-                totalHeartRate += split.getHeartRate();
-                totalSpeed += split.getSpeed();
-
-                if (highestSpeed > split.getSpeed()) {
-                    highestSpeed = split.getSpeed();
-                }
-                if (highestHeartRate > split.getHeartRate()) {
-                    highestHeartRate = split.getHeartRate();
-                }
-
-                count++;
-
+        for (Split split : splits) {
+            if (split == null) {
+                continue;
             }
+
+            totalDistance += split.getDistance();
+            totalHeartRate += split.getHeartRate();
+            totalSpeed += split.getSpeed();
+
+            if (highestSpeed > split.getSpeed()) {
+                highestSpeed = split.getSpeed();
+            }
+            if (highestHeartRate > split.getHeartRate()) {
+                highestHeartRate = split.getHeartRate();
+            }
+
+            count++;
+
         }
 
         double avgHeartRate = count > 0 ? (double) totalHeartRate / count : 0;
@@ -58,6 +67,10 @@ public class StatsService {
     }
 
     public Stats generateUserStats(List<Workout> workouts){
+        if (workouts == null) {
+            workouts = Collections.emptyList();
+        }
+
 
         double totalDistance = 0;
         double totalHeartRate = 0;
@@ -74,8 +87,13 @@ public class StatsService {
         List<RunningStats> workoutStatList = new ArrayList<>();
 
         for (Workout workout: workouts) {
-
+            if (workout == null) {
+                continue;
+            }
             RunningStats workoutStats = generateWorkOutStats(workout);
+            if (workoutStats == null) {
+                continue;
+            }
             workoutStatList.add(workoutStats);
 
             double workoutDistance = workoutStats.getTotalDistance();
@@ -120,37 +138,65 @@ public class StatsService {
     }
 
     public double GenerateFastestSegments(List<Split> splits, long distance){
+        if (splits == null || splits.isEmpty()) {
+            return 0;
+        }
+
         Double fastestTime = null;
 
         for (int start = 0; start < splits.size(); start++) {
+            Split startSplit = splits.get(start);
+            if (startSplit == null) {
+                continue;
+            }
+
+            Double startTime = startSplit.getTimeStamp();
+            if (startTime == null) {
+                continue;
+            }
+
             long totalDistance = 0;
-            Double startTime = splits.get(start).getTimeStamp();
 
             for (int end = start; end < splits.size(); end++) {
-                totalDistance += splits.get(end).getDistance();
+                Split endSplit = splits.get(end);
+                if (endSplit == null) {
+                    continue;
+                }
+
+                double endDistance = endSplit.getDistance();
+                totalDistance += (long) endDistance;
 
                 if (totalDistance >= distance) {
-                    Double endTime = splits.get(end).getTimeStamp();
-                    Double segmentTime = endTime - startTime;
-
-                    if (fastestTime == null || segmentTime.compareTo(fastestTime) < 0) {
-                        fastestTime = segmentTime;
+                    Double endTime = endSplit.getTimeStamp();
+                    if (endTime != null) {
+                        double segmentTime = endTime - startTime;
+                        if (fastestTime == null || segmentTime < fastestTime) {
+                            fastestTime = segmentTime;
+                        }
                     }
-
                     break;
                 }
             }
         }
 
-        assert fastestTime != null;
-        return fastestTime;
+        return fastestTime != null ? fastestTime : 0;
 
     }
     public Leaderboard getLeaderboardByType(String type, List<User> users) {
+        if (type == null || users == null) {
+            return new Leaderboard(Collections.emptyList());
+        }
+
         List<LeaderboardEntry> leaderboard = new ArrayList<>();
 
         for (User user : users) {
+            if (user == null) {
+                continue;
+            }
             RunningStats stats = user.getUserStatistics();
+            if (stats == null) {
+                continue;
+            }
             double value = switch (type.toLowerCase()) {
                 case "fastest5k" -> stats.getFastest5kPace();
                 case "fastest1k" -> stats.getFastest1kPace();
@@ -177,12 +223,19 @@ public class StatsService {
     }
 
     public List<SplitComparison> compareSplits(List<Split> splits) {
+        if (splits == null || splits.size() < 2) {
+            return Collections.emptyList();
+        }
 
         List<SplitComparison> comparisons = new ArrayList<>();
 
         for (int i = 1; i < splits.size(); i++) {
             Split previous = splits.get(i - 1);
             Split current = splits.get(i);
+
+            if (previous == null || current == null) {
+                continue;
+            }
 
             double speedChange = current.getSpeed() - previous.getSpeed();
             double heartRateChange = current.getHeartRate() - previous.getHeartRate();
