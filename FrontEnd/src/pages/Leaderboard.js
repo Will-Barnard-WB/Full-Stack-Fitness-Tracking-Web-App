@@ -4,6 +4,7 @@ import './WebApp.css';
 import React, { useEffect, useState } from "react";
 
 function Leaderboard() {
+    const navigate = useNavigate();
     const [leaderboards, setLeaderboards] = useState([]);
 
     useEffect(() => {
@@ -41,6 +42,7 @@ function Leaderboard() {
                     </div>
                 ))}
             </div>
+            <button className='back' onClick={navigate('/MainWindow')}>Back</button>
         </div>
     );
 }
