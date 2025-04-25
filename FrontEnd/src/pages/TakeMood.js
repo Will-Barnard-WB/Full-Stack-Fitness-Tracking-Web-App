@@ -15,14 +15,19 @@ const TakeMood = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        const storedValues = localStorage.getItem("sliderValues");
-        const storedDates = localStorage.getItem("sliderDates");
-
-        if (storedValues && storedDates) {
-            setValues(JSON.parse(storedValues));
-            setDates(JSON.parse(storedDates));
-        }
+        fetch("http://localhost:8080/users/1/moods") // Replace "1" with dynamic user ID if needed
+            .then(res => res.json())
+            .then(data => {
+                const moodValues = data.map(mood => mood.mood);
+                const moodDates = data.map(mood => new Date(mood.date).toLocaleDateString()); // assuming timestamp field
+                setValues(JSON.parse(moodValues));
+                setDates(JSON.parse(moodDates));
+            })
+            .catch(err => {
+                console.error("Failed to fetch mood history:", err);
+            });
     }, []);
+
 
     const handleChange = (e) => {
         setValue(Number(e.target.value));

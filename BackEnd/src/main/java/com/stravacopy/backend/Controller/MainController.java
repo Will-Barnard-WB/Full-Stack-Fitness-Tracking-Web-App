@@ -108,6 +108,16 @@ public class MainController {
         }
     }
 
+    @GetMapping("/{userId}/moods")
+    public ResponseEntity<List<Mood>> getUserMoods(@PathVariable String userId) {
+        User user = userRepository.findById(userId);
+        if (user != null) {
+            return ResponseEntity.ok(user.getMoods());
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
     @PostMapping("/{userId}/workouts")
     public ResponseEntity<String> addWorkout(@PathVariable String userId, @RequestBody Workout workout) {
         User user = userRepository.findById(userId);
