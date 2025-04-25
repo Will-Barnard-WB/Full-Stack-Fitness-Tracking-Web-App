@@ -5,7 +5,7 @@ import Layout from "./pages/Layout";
 import SignIn from "./pages/SignIn";
 import TakeMood from "./pages/TakeMood";
 import MainWindow from "./pages/MainWindow";
-//import AchievementPage from "./pages/AchievementPage";
+import AchievementPage from "./pages/AchievementPage";
 import GoalPage from "./pages/GoalPage";
 import GraphsPage from "./pages/GraphsPage";
 import MoodPage from "./pages/MoodPage";
@@ -43,7 +43,7 @@ export default function App() {
                 <Route path="/layout" element={<Layout />}>
                     <Route index element={<MainWindow />} />
                     <Route path="MainWindow" element={<MainWindow />} />
-
+                    <Route path="AchievementPage" element={<AchievementPage />} />
                     <Route path="GoalPage" element={<GoalPage />} />
                     <Route path="GraphsPage" element={<GraphsPage />} />
                     <Route path="MoodPage" element={<MoodPage />} />

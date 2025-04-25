@@ -59,7 +59,7 @@ function GraphsPage() {
                     </ResponsiveContainer>
                 </div>
 
-                <button className='back' onClick={navigate('/MainWindow')}>Back</button>
+                <button className='back' onClick={() => navigate('/Layout/MainWindow')}>Back</button>
             </div>
         </div>
     );

@@ -9,24 +9,24 @@ function SignIn() {
     const [password, setPassword] = useState('');
 
     useEffect(() => {
-        // Set initial user/password lists if not already in localStorage
-        if (!localStorage.getItem('users')) {
-            localStorage.setItem('users', JSON.stringify(['Harry', 'Leo', 'Brandon']));
-            localStorage.setItem('passwords', JSON.stringify(['123', 'password', 'react']));
+        if (localStorage.getItem('users')) {
+            localStorage.setItem('users', JSON.stringify(['Aaron', 'Isaac', 'Will', 'Dylan']));
+            localStorage.setItem('passwords', JSON.stringify(['password123', 'donthackme', 'PASSWORD!', '123456789']));
+            localStorage.setItem('id', JSON.stringify(['1', '2', '3', '4']));
         }
-    }, []);
+    } );
 
     function handleLogin() {
         const users = JSON.parse(localStorage.getItem('users'));
         const passwords = JSON.parse(localStorage.getItem('passwords'));
-
+        const id = JSON.parse(localStorage.getItem('id'));
 
         const userIndex = users.indexOf(username);
+        const userId = id[userIndex];
 
         if (userIndex !== -1 && password === passwords[userIndex]) {
-
-
             localStorage.setItem('loggedInUser', username);
+            localStorage.setItem('userID', userId);
             navigate("/TakeMood");
         } else {
             alert('Incorrect username or password');

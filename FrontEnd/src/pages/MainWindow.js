@@ -3,11 +3,12 @@ import './WebApp.css';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-const UserProfile = ({ userId }) => {
+const UserProfile = () => {
     const [user, setUser] = useState(null);
+    const userId = localStorage.getItem('userID');
 
     useEffect(() => {
-        axios.get(`http://138.38.223.182:8080/users/${userId}/data`)
+        axios.get(`http://172.26.42.147:8080/users/${userId}/data`)
             .then(response => setUser(response.data))
             .catch(error => console.error('Error fetching user:', error));
     }, [userId]);
@@ -49,7 +50,7 @@ export default function MainWindow() {
         <div className="mainWindow">
             <h1 className="mainTitle">Main Menu</h1>
             <div className="menuButtons">
-                <button onClick={() => navigate("/Layout/AchivementPage")}>Achievements</button>
+                <button onClick={() => navigate("/Layout/AchievementPage")}>Achievements</button>
                 <button onClick={() => navigate("/Layout/GoalPage")}>Goals</button>
                 <button onClick={() => navigate("/Layout/GraphsPage")}>Graphs</button>
                 <button onClick={() => navigate("/Layout/MoodPage")}>Mood Tracker</button>
