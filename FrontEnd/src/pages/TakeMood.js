@@ -40,7 +40,7 @@ const TakeMood = () => {
 
         const userId = "1"; // Replace with dynamic user ID if needed
 
-        fetch(`http://localhost:8080/users/${userId}/moods`, {
+        fetch(`http://172.26.42.147:8080/users/${userId}/moods`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
