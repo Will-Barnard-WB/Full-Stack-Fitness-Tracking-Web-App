@@ -4,16 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d56295ae-c88d-4252-9dc7-350f940c7521" name="Changes" comment="Leaderboard Entries">
-      <change beforePath="$PROJECT_DIR$/.idea/Coursework2Repo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Coursework2Repo.iml" afterDir="false" />
+    <list default="true" id="d56295ae-c88d-4252-9dc7-350f940c7521" name="Changes" comment="Frontend backend connection">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/pages/AchivementPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/pages/AchievementPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/pages/GraphsPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/pages/GraphsPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/pages/MainWindow.js" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/pages/MainWindow.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/pages/SignIn.js" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/pages/SignIn.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/com/stravacopy/backend/Controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/com/stravacopy/backend/Controller/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/src/pages/TakeMood.js" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/pages/TakeMood.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +21,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="AnnotationType" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -63,7 +58,6 @@
   &quot;keyToString&quot;: {
     &quot;Application.BackEndApplication.executor&quot;: &quot;Run&quot;,
     &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;Node.js.App.js.executor&quot;: &quot;Run&quot;,
     &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
     &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
     &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
@@ -74,7 +68,7 @@
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/blgre/WebstormProjects/Coursework2Repo&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/azmcl/finalCopy/Coursework2Repo&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -84,7 +78,6 @@
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors.Java&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2024.3.5\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -93,7 +86,16 @@
       <recent name="com.stravacopy.backend.Controller" />
     </key>
   </component>
-  <component name="RunManager" selected="Node.js.App.js">
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <option name="filePath" />
+      <method v="2" />
+    </configuration>
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="finaltest" />
       <option name="ENV_FILES" value="" />
@@ -157,9 +159,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="App.js" type="NodeJSConfigurationType" path-to-node="node" nameIsGenerated="true" path-to-js-file="App.js" working-dir="$PROJECT_DIR$/FrontEnd/src">
-      <method v="2" />
-    </configuration>
     <configuration name="BackEndApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="BackEnd" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.stravacopy.backend.BackEndApplication" />
@@ -171,8 +170,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-125ca727e0f0-intellij.indexing.shared.core-IU-243.23654.189" />
-        <option value="bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-IU-243.23654.189" />
+        <option value="bundled-js-predefined-d6986cc7102b-f27c65a3e318-JavaScript-WS-251.23774.424" />
       </set>
     </attachedChunks>
   </component>
@@ -197,11 +195,7 @@
       <workItem from="1745265985268" duration="57000" />
       <workItem from="1745304703792" duration="508000" />
       <workItem from="1745328128529" duration="1971000" />
-      <workItem from="1745507696632" duration="485000" />
-      <workItem from="1745508263262" duration="818000" />
-      <workItem from="1745509100757" duration="2004000" />
-      <workItem from="1745515755315" duration="814000" />
-      <workItem from="1745516581997" duration="1256000" />
+      <workItem from="1745576086078" duration="1405000" />
     </task>
     <task id="LOCAL-00001" summary="Added RunningStats class">
       <option name="closed" value="true" />
@@ -235,7 +229,15 @@
       <option name="project" value="LOCAL" />
       <updated>1745263985665</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Frontend backend connection">
+      <option name="closed" value="true" />
+      <created>1745506182843</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1745506182843</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -257,6 +259,7 @@
     <MESSAGE value="Added Stat Services" />
     <MESSAGE value="Split comparisons" />
     <MESSAGE value="Leaderboard Entries" />
-    <option name="LAST_COMMIT_MESSAGE" value="Leaderboard Entries" />
+    <MESSAGE value="Frontend backend connection" />
+    <option name="LAST_COMMIT_MESSAGE" value="Frontend backend connection" />
   </component>
 </project>
