@@ -11,6 +11,7 @@ import GraphsPage from "./pages/GraphsPage";
 import MoodPage from "./pages/MoodPage";
 import Settings from "./pages/Settings";
 import SignUp from "./pages/SignUp";
+import BackendCall from "./pages/BackendCall";
 
 // ✅ Temporary Test Component
 function BackendTest() {
@@ -40,6 +41,7 @@ export default function App() {
                 <Route path="/SignUp" element={<SignUp />} />
                 <Route path="/TakeMood" element={<TakeMood />} />
                 <Route path="/backend-test" element={<BackendTest />} /> {/* ✅ Test Route */}
+                <Route path="/BackendCall" element={<BackendCall />} />
                 <Route path="/layout" element={<Layout />}>
                     <Route index element={<MainWindow />} />
                     <Route path="MainWindow" element={<MainWindow />} />

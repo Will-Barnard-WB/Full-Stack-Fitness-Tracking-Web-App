@@ -30,7 +30,7 @@ const AchievementPage = () => {
 
     return (
         <div className="achievement-page">
-            <h1>Achievements</h1>
+            <h1>Achievement Page</h1>
             {mergedAchievements.map((achievement, index) => {
                 return (
                     <div key={index} className="achievement">
