@@ -92,8 +92,8 @@ public class MainController {
     }
 
 
-    @PostMapping("/{userId}/mood")
-    public ResponseEntity<String> addUserMood(@PathVariable String userId, @RequestBody int moodValue) {
+    @PostMapping("/{userId}/moods")
+    public ResponseEntity<String> addUserMood(@PathVariable String userId, @RequestBody Integer moodValue) {
         User user = userService.getUserByID(userId);
         if (user != null){
             Mood mood = new Mood(moodValue);
@@ -145,11 +145,17 @@ public class MainController {
     }
 
     @GetMapping("/Leaderboard")
-    public ResponseEntity<Leaderboard> getLeaderboard(@RequestBody String LeaderboardType) {
+    public ResponseEntity<List<Leaderboard>> getLeaderboard(@RequestBody String LeaderboardType) {
         if (userRepository.findAll().isEmpty()) {
             return ResponseEntity.notFound().build();
         } else {
-            return ResponseEntity.ok(statsService.getLeaderboardByType(LeaderboardType, userRepository.findAll()));
+            List<Leaderboard> leaderboards = new ArrayList<>();
+            leaderboards.add(statsService.getLeaderboardByType("fastest1kTime", userRepository.findAll()));
+            leaderboards.add(statsService.getLeaderboardByType("fastest5kTime", userRepository.findAll()));
+            leaderboards.add(statsService.getLeaderboardByType("fastest10kTime", userRepository.findAll()));
+            leaderboards.add(statsService.getLeaderboardByType("totaldistance", userRepository.findAll()));
+            leaderboards.add(statsService.getLeaderboardByType("topspeed", userRepository.findAll()));
+            return ResponseEntity.ok(leaderboards);
         }
     }
 
