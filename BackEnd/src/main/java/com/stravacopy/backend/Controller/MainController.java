@@ -92,8 +92,8 @@ public class MainController {
     }
 
 
-    @PostMapping("/{userId}/mood")
-    public ResponseEntity<String> addUserMood(@PathVariable String userId, @RequestBody int moodValue) {
+    @PostMapping("/{userId}/moods")
+    public ResponseEntity<String> addUserMood(@PathVariable String userId, @RequestBody Integer moodValue) {
         User user = userService.getUserByID(userId);
         if (user != null){
             Mood mood = new Mood(moodValue);

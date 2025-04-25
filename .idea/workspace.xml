@@ -4,22 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d56295ae-c88d-4252-9dc7-350f940c7521" name="Changes" comment="Leaderboard Entries">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/finaltest.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/opencsv.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+    <list default="true" id="d56295ae-c88d-4252-9dc7-350f940c7521" name="Changes" comment="Frontend backend connection">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/com/stravacopy/backend/Controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/com/stravacopy/backend/Controller/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/target/classes/com/stravacopy/backend/Model/Leaderboard.class" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/target/classes/com/stravacopy/backend/Model/Leaderboard.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/target/classes/com/stravacopy/backend/Model/LeaderboardEntry.class" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/target/classes/com/stravacopy/backend/Model/LeaderboardEntry.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/target/classes/com/stravacopy/backend/Model/Mood.class" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/target/classes/com/stravacopy/backend/Model/Mood.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/target/classes/com/stravacopy/backend/Repository/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/target/classes/com/stravacopy/backend/Repository/UserRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/target/classes/com/stravacopy/backend/Service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/target/classes/com/stravacopy/backend/Service/UserService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/src/pages/TakeMood.js" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/pages/TakeMood.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +21,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="AnnotationType" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -181,8 +170,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.23774.435" />
-        <option value="bundled-js-predefined-d6986cc7102b-f27c65a3e318-JavaScript-IU-251.23774.435" />
+        <option value="bundled-js-predefined-d6986cc7102b-f27c65a3e318-JavaScript-WS-251.23774.424" />
       </set>
     </attachedChunks>
   </component>
@@ -207,6 +195,7 @@
       <workItem from="1745265985268" duration="57000" />
       <workItem from="1745304703792" duration="508000" />
       <workItem from="1745328128529" duration="1971000" />
+      <workItem from="1745576086078" duration="1405000" />
     </task>
     <task id="LOCAL-00001" summary="Added RunningStats class">
       <option name="closed" value="true" />
@@ -240,7 +229,15 @@
       <option name="project" value="LOCAL" />
       <updated>1745263985665</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Frontend backend connection">
+      <option name="closed" value="true" />
+      <created>1745506182843</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1745506182843</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -262,6 +259,7 @@
     <MESSAGE value="Added Stat Services" />
     <MESSAGE value="Split comparisons" />
     <MESSAGE value="Leaderboard Entries" />
-    <option name="LAST_COMMIT_MESSAGE" value="Leaderboard Entries" />
+    <MESSAGE value="Frontend backend connection" />
+    <option name="LAST_COMMIT_MESSAGE" value="Frontend backend connection" />
   </component>
 </project>

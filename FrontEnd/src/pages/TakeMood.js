@@ -8,12 +8,12 @@ const emojis = [
 ];
 
 const TakeMood = () => {
-    const [value, setValue] = useState(5);              // current slider value
-    const [values, setValues] = useState([]); // Array to store slider values
-    const [dates, setDates] = useState([]); //Array to store date values
+    const [value, setValue] = useState(5);
+    const [values, setValues] = useState([]);
+    const [dates, setDates] = useState([]);
+    const [status, setStatus] = useState(""); // 👈 status message
     const navigate = useNavigate();
 
-    // Load history from localStorage when component mounts
     useEffect(() => {
         const storedValues = localStorage.getItem("sliderValues");
         const storedDates = localStorage.getItem("sliderDates");
@@ -29,20 +29,39 @@ const TakeMood = () => {
     };
 
     const handleRelease = () => {
-        const currentDate = new Date().toLocaleDateString(); // Get current date in the format MM/DD/YYYY
-
-        // add new value to lists
+        const currentDate = new Date().toLocaleDateString();
         const updatedValues = [...values, value];
         const updatedDates = [...dates, currentDate];
 
-        // Save updated values and dates to state and localStorage
         setValues(updatedValues);
         setDates(updatedDates);
         localStorage.setItem("sliderValues", JSON.stringify(updatedValues));
         localStorage.setItem("sliderDates", JSON.stringify(updatedDates));
 
-        // Navigate to the next page
-        navigate("/Layout");
+        const userId = "1"; // Replace with dynamic user ID if needed
+
+        fetch(`http://localhost:8080/users/${userId}/moods`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(value)
+        })
+            .then(res => {
+                if (!res.ok) throw new Error("Failed to submit mood");
+                return res.text();
+            })
+            .then(msg => {
+                console.log("Backend response:", msg);
+                setStatus("✅ Mood saved successfully!");
+                setTimeout(() => {
+                    navigate("/Layout");
+                }, 1000); // Delay navigation to show success
+            })
+            .catch(err => {
+                console.error("Error:", err);
+                setStatus("❌ Failed to save mood.");
+            });
     };
 
     return (
@@ -56,18 +75,22 @@ const TakeMood = () => {
                 max="10"
                 value={value}
                 onChange={handleChange}
-                onMouseUp={handleRelease}     // Desktop
-                onTouchEnd={handleRelease}    // Mobile
+                onMouseUp={handleRelease}
+                onTouchEnd={handleRelease}
             />
 
             <div className="moodSelected">
                 Selected: {value} {emojis[value - 1]}
             </div>
 
+            {status && (
+                <div className="moodStatus" style={{ marginTop: "1rem", fontWeight: "bold" }}>
+                    {status}
+                </div>
+            )}
+
             <div className="moodHistory">
-                <h3 className="historyTitle">
-                    Mood history (stored in localStorage for now):
-                </h3>
+                <h3 className="historyTitle">Mood history (stored in localStorage):</h3>
                 <ul className="historyList">
                     {values.length === 0 ? (
                         <li>No data yet</li>
