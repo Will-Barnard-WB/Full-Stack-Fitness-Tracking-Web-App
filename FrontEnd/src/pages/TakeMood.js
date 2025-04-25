@@ -56,7 +56,7 @@ const TakeMood = () => {
                 setStatus("✅ Mood saved successfully!");
                 setTimeout(() => {
                     navigate("/Layout");
-                }, 1000); // Delay navigation to show success
+                }, 0); // Delay navigation to show success
             })
             .catch(err => {
                 console.error("Error:", err);
