@@ -38,7 +38,7 @@ const TakeMood = () => {
         localStorage.setItem("sliderValues", JSON.stringify(updatedValues));
         localStorage.setItem("sliderDates", JSON.stringify(updatedDates));
 
-        const userId = "1"; // Replace with dynamic user ID if needed
+        const userId = localStorage.getItem("userID");
 
         fetch(`http://172.26.42.147:8080/users/${userId}/moods`, {
             method: "POST",
