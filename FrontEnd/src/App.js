@@ -12,6 +12,7 @@ import MoodPage from "./pages/MoodPage";
 import Settings from "./pages/Settings";
 import SignUp from "./pages/SignUp";
 import BackendCall from "./pages/BackendCall";
+import Leaderboard from "./pages/Leaderboard";
 
 // ✅ Temporary Test Component
 function BackendTest() {
@@ -49,6 +50,7 @@ export default function App() {
                     <Route path="GoalPage" element={<GoalPage />} />
                     <Route path="GraphsPage" element={<GraphsPage />} />
                     <Route path="MoodPage" element={<MoodPage />} />
+                    <Route path="Leaderboard" element={<Leaderboard />} />
                     <Route path="Settings" element={<Settings />} />
                 </Route>
             </Routes>

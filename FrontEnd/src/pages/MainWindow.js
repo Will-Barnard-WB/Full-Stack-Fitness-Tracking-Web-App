@@ -12,6 +12,7 @@ export default function MainWindow() {
                 <button onClick={() => navigate("/Layout/GoalPage")}>Goals</button>
                 <button onClick={() => navigate("/Layout/GraphsPage")}>Graphs</button>
                 <button onClick={() => navigate("/Layout/MoodPage")}>Mood Tracker</button>
+                <button onClick={() => navigate("/Layout/Leaderboard")}>Leaderboard</button>
                 <button onClick={() => navigate("/Layout/Settings")}>Settings</button>
             </div>
         </div>
