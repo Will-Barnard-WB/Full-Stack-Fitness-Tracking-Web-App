@@ -21,9 +21,28 @@ const MoodPage = () => {
     const clearHistory = () => {
         localStorage.removeItem("sliderValues");
         localStorage.removeItem("sliderDates");
-
         window.location.reload();
     };
+
+
+    useEffect(() => {
+        const userId = localStorage.getItem("userID");
+        fetch(`http://172.26.42.147:8080/users/${userId}/moods`) // Replace "1" with dynamic user ID if needed
+            .then(res => res.json())
+            .then(data => {
+                const moodValues = data.map(mood => mood.mood);
+                const moodDates = data.map(mood => new Date(mood.date).toLocaleDateString()); // assuming timestamp field
+                const combined = moodDates.map((date, index) => ({
+                    date,
+                    mood: moodValues[index],
+                }));
+
+                setData(combined);
+            })
+            .catch(err => {
+                console.error("Failed to fetch mood history:", err);
+            });
+    }, []);
 
     useEffect(() => {
         const storedValues = JSON.parse(localStorage.getItem("sliderValues")) || [];
