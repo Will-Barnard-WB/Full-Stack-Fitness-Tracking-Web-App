@@ -15,13 +15,14 @@ const TakeMood = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch("http://172.26.42.147:8080/users/1/moods") // Replace "1" with dynamic user ID if needed
+        const userId = localStorage.getItem("userID");
+        fetch(`http://172.26.42.147:8080/users/${userId}/moods`) // Replace "1" with dynamic user ID if needed
             .then(res => res.json())
             .then(data => {
                 const moodValues = data.map(mood => mood.mood);
                 const moodDates = data.map(mood => new Date(mood.date).toLocaleDateString()); // assuming timestamp field
-                setValues(JSON.parse(moodValues));
-                setDates(JSON.parse(moodDates));
+                setValues(moodValues);
+                setDates(moodDates);
             })
             .catch(err => {
                 console.error("Failed to fetch mood history:", err);
@@ -40,8 +41,6 @@ const TakeMood = () => {
 
         setValues(updatedValues);
         setDates(updatedDates);
-        localStorage.setItem("sliderValues", JSON.stringify(updatedValues));
-        localStorage.setItem("sliderDates", JSON.stringify(updatedDates));
 
         const userId = localStorage.getItem("userID");
 
@@ -95,7 +94,7 @@ const TakeMood = () => {
             )}
 
             <div className="moodHistory">
-                <h3 className="historyTitle">Mood history (stored in localStorage):</h3>
+                <h3 className="historyTitle">Mood history:</h3>
                 <ul className="historyList">
                     {values.length === 0 ? (
                         <li>No data yet</li>
