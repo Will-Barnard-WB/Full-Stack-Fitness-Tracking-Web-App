@@ -15,7 +15,7 @@ const TakeMood = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch("http://localhost:8080/users/1/moods") // Replace "1" with dynamic user ID if needed
+        fetch("http://172.26.42.147:8080/users/1/moods") // Replace "1" with dynamic user ID if needed
             .then(res => res.json())
             .then(data => {
                 const moodValues = data.map(mood => mood.mood);
