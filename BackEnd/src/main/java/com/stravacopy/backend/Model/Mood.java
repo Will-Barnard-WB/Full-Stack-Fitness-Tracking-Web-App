@@ -2,12 +2,15 @@ package com.stravacopy.backend.Model;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 public class Mood {
     private int mood;
+    private Date date;
 
     public Mood(int mood) {
         this.mood = mood;
+        this.date = new Date();
     }
 
     // Getter for mood field

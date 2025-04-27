@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d56295ae-c88d-4252-9dc7-350f940c7521" name="Changes" comment="Frontend backend connection">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/com/stravacopy/backend/Model/Mood.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/com/stravacopy/backend/Model/Mood.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BackEnd/target/classes/com/stravacopy/backend/Model/Mood.class" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/target/classes/com/stravacopy/backend/Model/Mood.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
