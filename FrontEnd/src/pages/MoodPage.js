@@ -80,10 +80,7 @@ const MoodPage = () => {
                 </ResponsiveContainer>
             )}
             <button onClick={clearHistory}>Clear History</button>
-
             <button className='back' onClick={() => navigate('/Layout/MainWindow')}>Back</button>
-
-
         </div>
     );
 };

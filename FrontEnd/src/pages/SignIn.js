@@ -9,7 +9,7 @@ function SignIn() {
     const [password, setPassword] = useState('');
 
     useEffect(() => {
-        if (localStorage.getItem('users')) {
+        if (!localStorage.getItem('users')) {
             localStorage.setItem('users', JSON.stringify(['Aaron', 'Isaac', 'Will', 'Dylan']));
             localStorage.setItem('passwords', JSON.stringify(['password123', 'donthackme', 'PASSWORD!', '123456789']));
             localStorage.setItem('id', JSON.stringify(['1', '2', '3', '4']));

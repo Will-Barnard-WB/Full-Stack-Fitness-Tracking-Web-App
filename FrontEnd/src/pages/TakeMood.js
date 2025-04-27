@@ -36,6 +36,14 @@ const TakeMood = () => {
 
     const handleRelease = () => {
         const currentDate = new Date().toLocaleDateString();
+        const stored = localStorage.getItem('loginDates');
+        let dates = stored ? JSON.parse(stored) : [];
+
+        if (!dates.includes(currentDate)) {
+            dates.push(currentDate);
+            localStorage.setItem('loginDates', JSON.stringify(dates));
+        }
+
         const updatedValues = [...values, value];
         const updatedDates = [...dates, currentDate];
 
