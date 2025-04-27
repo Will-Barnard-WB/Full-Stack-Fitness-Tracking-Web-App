@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d56295ae-c88d-4252-9dc7-350f940c7521" name="Changes" comment="">
+    <list default="true" id="d56295ae-c88d-4252-9dc7-350f940c7521" name="Changes" comment="Frontend backend connection">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/pages/AchievementPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/pages/AchievementPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/pages/MoodPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/pages/MoodPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/pages/SignIn.js" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/pages/SignIn.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/pages/TakeMood.js" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/pages/TakeMood.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/com/stravacopy/backend/Model/Mood.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/com/stravacopy/backend/Model/Mood.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/target/classes/com/stravacopy/backend/Model/Mood.class" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/target/classes/com/stravacopy/backend/Model/Mood.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +78,7 @@
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors.Java&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2024.3.5\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\azmcl\\AppData\\Local\\Programs\\WebStorm\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -173,7 +171,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-WS-243.26053.12" />
+        <option value="bundled-js-predefined-d6986cc7102b-f27c65a3e318-JavaScript-WS-251.23774.424" />
       </set>
     </attachedChunks>
   </component>
@@ -199,8 +197,6 @@
       <workItem from="1745304703792" duration="508000" />
       <workItem from="1745328128529" duration="1971000" />
       <workItem from="1745576086078" duration="1405000" />
-      <workItem from="1745696965226" duration="7768000" />
-      <workItem from="1745770059164" duration="4063000" />
     </task>
     <task id="LOCAL-00001" summary="Added RunningStats class">
       <option name="closed" value="true" />
@@ -242,7 +238,15 @@
       <option name="project" value="LOCAL" />
       <updated>1745506182843</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Frontend backend connection">
+      <option name="closed" value="true" />
+      <created>1745582815894</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1745582815894</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
