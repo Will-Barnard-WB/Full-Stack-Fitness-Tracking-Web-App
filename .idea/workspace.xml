@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d56295ae-c88d-4252-9dc7-350f940c7521" name="Changes" comment="Frontend backend connection">
+    <list default="true" id="d56295ae-c88d-4252-9dc7-350f940c7521" name="Changes" comment="Fixed GraphsPage runtime error">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/pages/GraphsPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/pages/GraphsPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/src/pages/BackendCall.js" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/pages/BackendCall.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/src/pages/Leaderboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/pages/Leaderboard.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -245,7 +246,15 @@
       <option name="project" value="LOCAL" />
       <updated>1745582815894</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Fixed GraphsPage runtime error">
+      <option name="closed" value="true" />
+      <created>1745783015739</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1745783015739</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -269,6 +278,7 @@
     <MESSAGE value="Leaderboard Entries" />
     <MESSAGE value="Frontend backend connection" />
     <MESSAGE value="AchievementPage" />
-    <option name="LAST_COMMIT_MESSAGE" value="AchievementPage" />
+    <MESSAGE value="Fixed GraphsPage runtime error" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed GraphsPage runtime error" />
   </component>
 </project>
