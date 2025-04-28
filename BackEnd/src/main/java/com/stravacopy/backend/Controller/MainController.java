@@ -153,7 +153,7 @@ public class MainController {
         return ResponseEntity.notFound().build();
     }
 
-    @GetMapping("/users/Leaderboard")
+    @GetMapping("/Leaderboard")
     public ResponseEntity<List<Leaderboard>> getLeaderboard() {
         if (userRepository.findAll().isEmpty()) {
             return ResponseEntity.notFound().build();

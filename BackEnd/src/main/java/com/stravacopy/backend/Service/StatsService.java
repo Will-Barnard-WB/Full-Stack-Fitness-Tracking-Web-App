@@ -219,7 +219,7 @@ public class StatsService {
         } else {
             leaderboard.sort(Comparator.comparing(LeaderboardEntry::getValue).reversed());
         }
-
+        System.out.println(leaderboard);
         return new Leaderboard(leaderboard);
     }
 
