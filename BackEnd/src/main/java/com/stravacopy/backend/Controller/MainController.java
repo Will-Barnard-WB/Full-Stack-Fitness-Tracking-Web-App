@@ -14,7 +14,6 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/users") // Base URL for user-related requests
-@CrossOrigin(origins = "*")
 public class MainController {
 
     @Autowired
@@ -154,8 +153,8 @@ public class MainController {
         return ResponseEntity.notFound().build();
     }
 
-    @GetMapping("/Leaderboard")
-    public ResponseEntity<List<Leaderboard>> getLeaderboard(@RequestBody String LeaderboardType) {
+    @GetMapping("/users/Leaderboard")
+    public ResponseEntity<List<Leaderboard>> getLeaderboard() {
         if (userRepository.findAll().isEmpty()) {
             return ResponseEntity.notFound().build();
         } else {
