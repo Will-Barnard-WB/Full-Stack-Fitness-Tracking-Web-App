@@ -9,21 +9,19 @@ function GraphsPage() {
     const [data, setData] = useState([]);
     const [selectedWorkoutIndex, setSelectedWorkoutIndex] = useState(0);
     const [checkedOptions, setCheckedOptions] = useState({});
-    const [isLoading, setIsLoading] = useState(true); // To handle loading state
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         const userId = localStorage.getItem("userID");
-        fetch(`http://172.26.42.147:8080/users/${userId}/workouts`)
+        fetch(`http://172.26.42.147:8080/users/${userId}/data`)
             .then(res => res.json())
             .then(data => {
-                console.log("Fetched data:", data); // Log the data to inspect
+                console.log("Fetched data:", data);
 
-                // Map the workouts data to the format needed for the graph
-                const workoutsData = data.map((workout, index) => {
-                    // If dateTime is null, we can use a default string or fallback
+                const workoutsData = data.workouts.map((workout, index) => {
+
                     const date = workout.dateTime ? new Date(workout.dateTime).toLocaleDateString() : `Workout ${index + 1}`;
 
-                    // Process splits data safely, ensure splits are an array
                     const speeds = workout.splits ? workout.splits.map(split => split.speed || 0) : [];
                     const altitudes = workout.splits ? workout.splits.map(split => split.altitude || 0) : [];
                     const cadences = workout.splits ? workout.splits.map(split => split.cadence || 0) : [];
@@ -39,12 +37,12 @@ function GraphsPage() {
 
                 console.log("Mapped workout data:", workoutsData);
                 setData(workoutsData);
-                setSelectedWorkoutIndex(0); // Default to the first workout
-                setIsLoading(false); // Set loading to false once data is fetched
+                setSelectedWorkoutIndex(0);
+                setIsLoading(false);
             })
             .catch(err => {
                 console.error("Failed to fetch workout data:", err);
-                setIsLoading(false); // Set loading to false in case of an error
+                setIsLoading(false);
             });
     }, []);
 

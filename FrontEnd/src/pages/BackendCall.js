@@ -6,6 +6,7 @@ const UserProfile = () => {
     const userId = localStorage.getItem('userID');
 
     useEffect(() => {
+
         axios.get(`http://172.26.42.147:8080/users/${userId}/data`)
             .then(response => setUser(response.data))
             .catch(error => console.error('Error fetching user:', error));
