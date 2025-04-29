@@ -7,11 +7,6 @@
     <list default="true" id="d56295ae-c88d-4252-9dc7-350f940c7521" name="Changes" comment="Fixed not fetching leaderboards">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/com/stravacopy/backend/Controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/com/stravacopy/backend/Controller/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/com/stravacopy/backend/Model/Split.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/com/stravacopy/backend/Model/Split.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/com/stravacopy/backend/Service/StatsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/com/stravacopy/backend/Service/StatsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/target/classes/com/stravacopy/backend/Model/Leaderboard.class" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/target/classes/com/stravacopy/backend/Model/Leaderboard.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/target/classes/com/stravacopy/backend/Model/LeaderboardEntry.class" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/target/classes/com/stravacopy/backend/Model/LeaderboardEntry.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/target/classes/com/stravacopy/backend/Model/Mood.class" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/target/classes/com/stravacopy/backend/Model/Mood.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,11 +168,6 @@
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <method v="2" />
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.BackEndApplication" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -209,7 +199,7 @@
       <workItem from="1745304703792" duration="508000" />
       <workItem from="1745328128529" duration="1971000" />
       <workItem from="1745576086078" duration="1405000" />
-      <workItem from="1745932861015" duration="3892000" />
+      <workItem from="1745932861015" duration="5586000" />
     </task>
     <task id="LOCAL-00001" summary="Added RunningStats class">
       <option name="closed" value="true" />
@@ -307,7 +297,23 @@
       <option name="project" value="LOCAL" />
       <updated>1745934194540</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Fixed not fetching leaderboards">
+      <option name="closed" value="true" />
+      <created>1745936799828</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1745936799828</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Fixed not fetching leaderboards">
+      <option name="closed" value="true" />
+      <created>1745937025259</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1745937025259</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
