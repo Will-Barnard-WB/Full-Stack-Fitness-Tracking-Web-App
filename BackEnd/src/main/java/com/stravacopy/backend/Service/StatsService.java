@@ -40,10 +40,10 @@ public class StatsService {
             totalHeartRate += split.getHeartRate();
             totalSpeed += split.getSpeed();
 
-            if (highestSpeed > split.getSpeed()) {
+            if (highestSpeed < split.getSpeed()) {
                 highestSpeed = split.getSpeed();
             }
-            if (highestHeartRate > split.getHeartRate()) {
+            if (highestHeartRate < split.getHeartRate()) {
                 highestHeartRate = split.getHeartRate();
             }
 
@@ -135,7 +135,7 @@ public class StatsService {
         return new Stats(runningStats,workoutStatList);
     }
 
-    public double GenerateFastestSegments(List<Split> splits, long distance){
+    public double GenerateFastestSegments(List<Split> splits, long targetDistance) {
         if (splits == null || splits.isEmpty()) {
             return 0;
         }
@@ -144,42 +144,31 @@ public class StatsService {
 
         for (int start = 0; start < splits.size(); start++) {
             Split startSplit = splits.get(start);
-            if (startSplit == null) {
+            if (startSplit == null || startSplit.getTimeStamp() == null || startSplit.getDistance() == 0.0) {
                 continue;
             }
 
-            Double startTime = startSplit.getTimeStamp();
-            if (startTime == null) {
-                continue;
-            }
-
-            long totalDistance = 0;
-
-            for (int end = start; end < splits.size(); end++) {
+            for (int end = start + 1; end < splits.size(); end++) {
                 Split endSplit = splits.get(end);
-                if (endSplit == null) {
+                if (endSplit == null || endSplit.getTimeStamp() == null || endSplit.getDistance() == 0.0) {
                     continue;
                 }
 
-                double endDistance = endSplit.getDistance();
-                totalDistance += (long) endDistance;
+                double distanceDelta = endSplit.getDistance() - startSplit.getDistance();
 
-                if (totalDistance >= distance) {
-                    Double endTime = endSplit.getTimeStamp();
-                    if (endTime != null) {
-                        double segmentTime = endTime - startTime;
-                        if (fastestTime == null || segmentTime < fastestTime) {
-                            fastestTime = segmentTime;
-                        }
+                if (distanceDelta >= targetDistance) {
+                    double timeDelta = endSplit.getTimeStamp() - startSplit.getTimeStamp();
+                    if (fastestTime == null || timeDelta < fastestTime) {
+                        fastestTime = timeDelta;
                     }
-                    break;
+                    // no break — keep searching for even faster segments
                 }
             }
         }
 
         return fastestTime != null ? fastestTime : 0;
-
     }
+
     public Leaderboard getLeaderboardByType(String type, List<User> users) {
         if (type == null || users == null) {
             return new Leaderboard(Collections.emptyList());
