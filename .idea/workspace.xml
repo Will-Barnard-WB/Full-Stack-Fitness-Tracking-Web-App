@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d56295ae-c88d-4252-9dc7-350f940c7521" name="Changes" comment="Leaderboard">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/pages/BackendCall.js" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/pages/BackendCall.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/pages/GraphsPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/pages/GraphsPage.js" afterDir="false" />
+    <list default="true" id="d56295ae-c88d-4252-9dc7-350f940c7521" name="Changes" comment="Fixed GraphsPage runtime error">
+      <change beforePath="$PROJECT_DIR$/BackEnd/target/classes/com/stravacopy/backend/Model/Leaderboard.class" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/target/classes/com/stravacopy/backend/Model/Leaderboard.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +20,8 @@
       <list>
         <option value="AnnotationType" />
         <option value="JavaScript File" />
+        <option value="package-info" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -87,7 +87,20 @@
       <recent name="com.stravacopy.backend.Controller" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.BackEndApplication">
+    <configuration name="BackEndApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.stravacopy.backend.BackEndApplication" />
+      <module name="BackEnd" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.stravacopy.backend.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <method v="2">
         <option name="Make" enabled="true" />
@@ -134,6 +147,13 @@
       <option name="launchJavascriptDebuger" value="false" />
       <method v="2" />
     </configuration>
+    <configuration name="BackEndApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="BackEnd" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.stravacopy.backend.BackEndApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="Tox" factoryName="Tox">
       <module name="finaltest" />
       <option name="ENV_FILES" value="" />
@@ -147,31 +167,11 @@
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <method v="2" />
     </configuration>
-    <configuration name="BackEndApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.stravacopy.backend.BackEndApplication" />
-      <module name="BackEnd" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.stravacopy.backend.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="BackEndApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="BackEnd" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.stravacopy.backend.BackEndApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-WS-243.26053.12" />
+        <option value="bundled-js-predefined-d6986cc7102b-f27c65a3e318-JavaScript-WS-251.23774.424" />
       </set>
     </attachedChunks>
   </component>
@@ -197,7 +197,6 @@
       <workItem from="1745304703792" duration="508000" />
       <workItem from="1745328128529" duration="1971000" />
       <workItem from="1745576086078" duration="1405000" />
-      <workItem from="1745932962881" duration="287000" />
     </task>
     <task id="LOCAL-00001" summary="Added RunningStats class">
       <option name="closed" value="true" />
@@ -255,15 +254,23 @@
       <option name="project" value="LOCAL" />
       <updated>1745783015739</updated>
     </task>
-    <task id="LOCAL-00008" summary="Leaderboard">
+    <task id="LOCAL-00008" summary="Fixed GraphsPage runtime error">
       <option name="closed" value="true" />
-      <created>1745839736665</created>
+      <created>1745841153663</created>
       <option name="number" value="00008" />
       <option name="presentableId" value="LOCAL-00008" />
       <option name="project" value="LOCAL" />
-      <updated>1745839736665</updated>
+      <updated>1745841153663</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Fixed not fetching leaderboards">
+      <option name="closed" value="true" />
+      <created>1745841898980</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1745841898980</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -288,7 +295,7 @@
     <MESSAGE value="Frontend backend connection" />
     <MESSAGE value="AchievementPage" />
     <MESSAGE value="Fixed GraphsPage runtime error" />
-    <MESSAGE value="Leaderboard" />
-    <option name="LAST_COMMIT_MESSAGE" value="Leaderboard" />
+    <MESSAGE value="Fixed not fetching leaderboards" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed not fetching leaderboards" />
   </component>
 </project>
