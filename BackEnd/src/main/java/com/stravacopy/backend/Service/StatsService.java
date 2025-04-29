@@ -147,6 +147,8 @@ public class StatsService {
             if (startSplit == null || startSplit.getTimeStamp() == null || startSplit.getDistance() == 0.0) {
                 continue;
             }
+            double count = 0;
+            double totalSpeed = 0;
 
             for (int end = start + 1; end < splits.size(); end++) {
                 Split endSplit = splits.get(end);
@@ -154,13 +156,13 @@ public class StatsService {
                     continue;
                 }
 
+                totalSpeed += endSplit.getSpeed();
+                count++;
+
                 double distanceDelta = endSplit.getDistance() - startSplit.getDistance();
 
                 if (distanceDelta >= targetDistance) {
-                    double timeDelta = endSplit.getTimeStamp() - startSplit.getTimeStamp();
-                    if (fastestTime == null || timeDelta < fastestTime) {
-                        fastestTime = timeDelta;
-                    }
+                    fastestTime = count > 0 ? totalSpeed / count : 0;
                     // no break — keep searching for even faster segments
                 }
             }
