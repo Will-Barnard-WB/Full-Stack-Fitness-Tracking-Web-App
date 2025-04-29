@@ -44,10 +44,10 @@ public class StatsService {
             totalHeartRate += split.getHeartRate();
             totalSpeed += split.getSpeed();
 
-            if (highestSpeed > split.getSpeed()) {
+            if (highestSpeed < split.getSpeed()) {
                 highestSpeed = split.getSpeed();
             }
-            if (highestHeartRate > split.getHeartRate()) {
+            if (highestHeartRate < split.getHeartRate()) {
                 highestHeartRate = split.getHeartRate();
             }
 
@@ -63,7 +63,7 @@ public class StatsService {
         fastest10kTime = GenerateFastestSegments(splits, 10000);
 
         workout.setSplitComparisons(compareSplits(splits));
-
+        totalDistance = splits.getLast().getDistance();
         return new RunningStats(totalDistance, avgHeartRate, avgSpeed, fastest1kTime,fastest5kTime,fastest10kTime, highestSpeed, highestHeartRate, 0);
     }
 
@@ -157,7 +157,7 @@ public class StatsService {
             }
 
             long totalDistance = 0;
-
+            double prevDistance = 0;
             for (int end = start; end < splits.size(); end++) {
                 Split endSplit = splits.get(end);
                 if (endSplit == null) {
@@ -165,8 +165,8 @@ public class StatsService {
                 }
 
                 double endDistance = endSplit.getDistance();
-                totalDistance += (long) endDistance;
-
+                totalDistance += (long) ((long) endDistance - prevDistance);
+                prevDistance = endDistance;
                 if (totalDistance >= distance) {
                     Double endTime = endSplit.getTimeStamp();
                     if (endTime != null) {

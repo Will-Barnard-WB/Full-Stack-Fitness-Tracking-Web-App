@@ -78,6 +78,7 @@ public class MainController {
             Stats stats = statsService.generateUserStats(workouts);
             user.setUserStatistics(stats.getRunningStats());
             user.setWorkoutStats(stats.getAllWorkoutStats());
+            userRepository.save(user);
             return ResponseEntity.ok(user);
         }
         return ResponseEntity.ok(new User()); // NOT SURE WHAT TO RETURN?
