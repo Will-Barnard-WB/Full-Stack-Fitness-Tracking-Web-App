@@ -29,9 +29,6 @@ public class StatsService {
         double totalHeartRate = 0;
         double totalSpeed = 0;
         double count = 0;
-        double fastest1kTime = 0;
-        double fastest5kTime = 0;
-        double fastest10kTime = 0;
         double highestSpeed = 0;
         double highestHeartRate = 0;
 
@@ -40,16 +37,8 @@ public class StatsService {
                 continue;
             }
 
-            totalDistance += split.getDistance();
             totalHeartRate += split.getHeartRate();
             totalSpeed += split.getSpeed();
-
-            if (highestSpeed > split.getSpeed()) {
-                highestSpeed = split.getSpeed();
-            }
-            if (highestHeartRate > split.getHeartRate()) {
-                highestHeartRate = split.getHeartRate();
-            }
 
             count++;
 
@@ -58,11 +47,12 @@ public class StatsService {
         double avgHeartRate = count > 0 ? (double) totalHeartRate / count : 0;
         double avgSpeed = count > 0 ? (double) totalSpeed / count : 0;
 
-        fastest1kTime = GenerateFastestSegments(splits, 1000);
-        fastest5kTime = GenerateFastestSegments(splits, 5000);
-        fastest10kTime = GenerateFastestSegments(splits, 10000);
+        double fastest1kTime = GenerateFastestSegments(splits, 1000);
+        double fastest5kTime = GenerateFastestSegments(splits, 5000);
+        double fastest10kTime = GenerateFastestSegments(splits, 10000);
 
         workout.setSplitComparisons(compareSplits(splits));
+        totalDistance = splits.getLast().getDistance();
 
         return new RunningStats(totalDistance, avgHeartRate, avgSpeed, fastest1kTime,fastest5kTime,fastest10kTime, highestSpeed, highestHeartRate, 0);
     }
@@ -194,9 +184,7 @@ public class StatsService {
             if (user == null) {
                 continue;
             }
-
-            RunningStats stats = generateUserStats(user.getWorkouts()).getRunningStats();
-
+            RunningStats stats = user.getUserStatistics();
             if (stats == null) {
                 continue;
             }
