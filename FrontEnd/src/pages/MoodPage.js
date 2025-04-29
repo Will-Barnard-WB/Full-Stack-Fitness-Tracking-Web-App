@@ -18,20 +18,14 @@ const MoodPage = () => {
 
     const [data, setData] = useState([]);
 
-    const clearHistory = () => {
-        localStorage.removeItem("sliderValues");
-        localStorage.removeItem("sliderDates");
-        window.location.reload();
-    };
-
 
     useEffect(() => {
         const userId = localStorage.getItem("userID");
-        fetch(`http://172.26.42.147:8080/users/${userId}/moods`) // Replace "1" with dynamic user ID if needed
+        fetch(`http://172.26.42.147:8080/users/${userId}/moods`)
             .then(res => res.json())
             .then(data => {
                 const moodValues = data.map(mood => mood.mood);
-                const moodDates = data.map(mood => new Date(mood.date).toLocaleDateString()); // assuming timestamp field
+                const moodDates = data.map(mood => new Date(mood.date).toLocaleDateString());
                 const combined = moodDates.map((date, index) => ({
                     date,
                     mood: moodValues[index],
@@ -60,7 +54,7 @@ const MoodPage = () => {
         <div>
             <h1>Mood Tracker (Recharts)</h1>
             {data.length === 0 ? (
-                <p>No data yet</p>
+                <p>Loading data...</p>
             ) : (
                 <ResponsiveContainer width="100%" height={300}>
                     <LineChart data={data} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
@@ -79,8 +73,10 @@ const MoodPage = () => {
                     </LineChart>
                 </ResponsiveContainer>
             )}
-            <button onClick={clearHistory}>Clear History</button>
+
             <button className='back' onClick={() => navigate('/Layout/MainWindow')}>Back</button>
+
+
         </div>
     );
 };

@@ -194,7 +194,9 @@ public class StatsService {
             if (user == null) {
                 continue;
             }
-            RunningStats stats = user.getUserStatistics();
+
+            RunningStats stats = generateUserStats(user.getWorkouts()).getRunningStats();
+
             if (stats == null) {
                 continue;
             }

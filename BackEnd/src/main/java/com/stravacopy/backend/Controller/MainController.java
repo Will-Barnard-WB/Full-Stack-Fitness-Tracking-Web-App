@@ -159,6 +159,7 @@ public class MainController {
             return ResponseEntity.notFound().build();
         } else {
             List<Leaderboard> leaderboards = new ArrayList<>();
+
             leaderboards.add(statsService.getLeaderboardByType("fastest1kTime", userRepository.findAll()));
             leaderboards.add(statsService.getLeaderboardByType("fastest5kTime", userRepository.findAll()));
             leaderboards.add(statsService.getLeaderboardByType("fastest10kTime", userRepository.findAll()));
