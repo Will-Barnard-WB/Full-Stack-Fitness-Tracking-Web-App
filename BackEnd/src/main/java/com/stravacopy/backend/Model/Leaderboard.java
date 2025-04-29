@@ -19,4 +19,12 @@ public class Leaderboard {
     {
         this.entries = entries;
     }
+
+    @Override
+    public String toString()
+    {
+        return "Leaderboard{" +
+                "entries=" + entries +
+                '}';
+    }
 }

@@ -18,4 +18,13 @@ public class LeaderboardEntry {
     public double getValue() {
         return value;
     }
+
+    @Override
+    public String toString()
+    {
+        return "LeaderboardEntry{" +
+                "username='" + username + '\'' +
+                ", value=" + value +
+                '}';
+    }
 }
