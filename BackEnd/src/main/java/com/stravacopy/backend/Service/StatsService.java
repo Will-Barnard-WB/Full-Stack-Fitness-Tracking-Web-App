@@ -40,10 +40,10 @@ public class StatsService {
             totalHeartRate += split.getHeartRate();
             totalSpeed += split.getSpeed();
 
-            if (highestSpeed > split.getSpeed()) {
+            if (highestSpeed < split.getSpeed()) {
                 highestSpeed = split.getSpeed();
             }
-            if (highestHeartRate > split.getHeartRate()) {
+            if (highestHeartRate < split.getHeartRate()) {
                 highestHeartRate = split.getHeartRate();
             }
 
