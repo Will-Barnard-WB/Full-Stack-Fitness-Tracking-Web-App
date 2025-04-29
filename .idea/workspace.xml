@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d56295ae-c88d-4252-9dc7-350f940c7521" name="Changes" comment="Fixed GraphsPage runtime error">
-      <change beforePath="$PROJECT_DIR$/BackEnd/target/classes/com/stravacopy/backend/Model/Leaderboard.class" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/target/classes/com/stravacopy/backend/Model/Leaderboard.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/src/pages/Leaderboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/pages/Leaderboard.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,20 +88,7 @@
       <recent name="com.stravacopy.backend.Controller" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.BackEndApplication">
-    <configuration name="BackEndApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.stravacopy.backend.BackEndApplication" />
-      <module name="BackEnd" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.stravacopy.backend.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager">
     <configuration default="true" type="JetRunConfigurationType">
       <method v="2">
         <option name="Make" enabled="true" />
@@ -147,13 +135,6 @@
       <option name="launchJavascriptDebuger" value="false" />
       <method v="2" />
     </configuration>
-    <configuration name="BackEndApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="BackEnd" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.stravacopy.backend.BackEndApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="Tox" factoryName="Tox">
       <module name="finaltest" />
       <option name="ENV_FILES" value="" />
@@ -166,6 +147,26 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <method v="2" />
+    </configuration>
+    <configuration name="BackEndApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.stravacopy.backend.BackEndApplication" />
+      <module name="BackEnd" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.stravacopy.backend.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BackEndApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="BackEnd" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.stravacopy.backend.BackEndApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
   </component>
   <component name="SharedIndexes">

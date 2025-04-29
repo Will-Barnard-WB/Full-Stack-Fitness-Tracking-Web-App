@@ -16,6 +16,7 @@ function Leaderboard() {
                 return response.json();
             })
             .then(data => {
+                console.log(data)
                 setLeaderboards(data);  // Expecting data to be an array of arrays
             })
             .catch(error => {
@@ -31,11 +32,11 @@ function Leaderboard() {
                     <div key={i} className="leaderboardContainer">
                         <h2 className="leaderboardTitle">Leaderboard {i + 1}</h2>
                         <ul className="leaderboardList">
-                            {board.map((entry, index) => (
+                            {board.entries.map((entry, index) => (
                                 <li key={index} className="leaderboardItem">
                                     <span className="rank">{index + 1}.</span>
-                                    <span className="name">{entry[0]}</span>
-                                    <span className="score">{entry[1]}</span>
+                                    <span className="name">{entry.username}</span>
+                                    <span className="score">{(entry.value/1000000).toFixed(1)}</span>
                                 </li>
                             ))}
                         </ul>
