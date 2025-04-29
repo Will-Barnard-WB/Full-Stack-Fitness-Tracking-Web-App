@@ -52,7 +52,7 @@ const MoodPage = () => {
 
     return (
         <div>
-            <h1>Mood Tracker (Recharts)</h1>
+            <h1>Mood Tracker</h1>
             {data.length === 0 ? (
                 <p>Loading data...</p>
             ) : (
