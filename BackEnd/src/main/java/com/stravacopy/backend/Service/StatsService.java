@@ -29,9 +29,6 @@ public class StatsService {
         double totalHeartRate = 0;
         double totalSpeed = 0;
         double count = 0;
-        double fastest1kTime = 0;
-        double fastest5kTime = 0;
-        double fastest10kTime = 0;
         double highestSpeed = 0;
         double highestHeartRate = 0;
 
@@ -40,14 +37,13 @@ public class StatsService {
                 continue;
             }
 
-            totalDistance += split.getDistance();
             totalHeartRate += split.getHeartRate();
             totalSpeed += split.getSpeed();
 
-            if (highestSpeed > split.getSpeed()) {
+            if (highestSpeed < split.getSpeed()) {
                 highestSpeed = split.getSpeed();
             }
-            if (highestHeartRate > split.getHeartRate()) {
+            if (highestHeartRate < split.getHeartRate()) {
                 highestHeartRate = split.getHeartRate();
             }
 
@@ -58,11 +54,12 @@ public class StatsService {
         double avgHeartRate = count > 0 ? (double) totalHeartRate / count : 0;
         double avgSpeed = count > 0 ? (double) totalSpeed / count : 0;
 
-        fastest1kTime = GenerateFastestSegments(splits, 1000);
-        fastest5kTime = GenerateFastestSegments(splits, 5000);
-        fastest10kTime = GenerateFastestSegments(splits, 10000);
+        double fastest1kTime = GenerateFastestSegments(splits, 1000);
+        double fastest5kTime = GenerateFastestSegments(splits, 5000);
+        double fastest10kTime = GenerateFastestSegments(splits, 10000);
 
         workout.setSplitComparisons(compareSplits(splits));
+        totalDistance = splits.getLast().getDistance();
 
         return new RunningStats(totalDistance, avgHeartRate, avgSpeed, fastest1kTime,fastest5kTime,fastest10kTime, highestSpeed, highestHeartRate, 0);
     }
@@ -138,7 +135,7 @@ public class StatsService {
         return new Stats(runningStats,workoutStatList);
     }
 
-    public double GenerateFastestSegments(List<Split> splits, long distance){
+    public double GenerateFastestSegments(List<Split> splits, long targetDistance) {
         if (splits == null || splits.isEmpty()) {
             return 0;
         }
@@ -147,42 +144,33 @@ public class StatsService {
 
         for (int start = 0; start < splits.size(); start++) {
             Split startSplit = splits.get(start);
-            if (startSplit == null) {
+            if (startSplit == null || startSplit.getTimeStamp() == null || startSplit.getDistance() == 0.0) {
                 continue;
             }
+            double count = 0;
+            double totalSpeed = 0;
 
-            Double startTime = startSplit.getTimeStamp();
-            if (startTime == null) {
-                continue;
-            }
-
-            long totalDistance = 0;
-
-            for (int end = start; end < splits.size(); end++) {
+            for (int end = start + 1; end < splits.size(); end++) {
                 Split endSplit = splits.get(end);
-                if (endSplit == null) {
+                if (endSplit == null || endSplit.getTimeStamp() == null || endSplit.getDistance() == 0.0) {
                     continue;
                 }
 
-                double endDistance = endSplit.getDistance();
-                totalDistance += (long) endDistance;
+                totalSpeed += endSplit.getSpeed();
+                count++;
 
-                if (totalDistance >= distance) {
-                    Double endTime = endSplit.getTimeStamp();
-                    if (endTime != null) {
-                        double segmentTime = endTime - startTime;
-                        if (fastestTime == null || segmentTime < fastestTime) {
-                            fastestTime = segmentTime;
-                        }
-                    }
-                    break;
+                double distanceDelta = endSplit.getDistance() - startSplit.getDistance();
+
+                if (distanceDelta >= targetDistance) {
+                    fastestTime = count > 0 ? totalSpeed / count : 0;
+                    // no break — keep searching for even faster segments
                 }
             }
         }
 
         return fastestTime != null ? fastestTime : 0;
-
     }
+
     public Leaderboard getLeaderboardByType(String type, List<User> users) {
         if (type == null || users == null) {
             return new Leaderboard(Collections.emptyList());
@@ -194,9 +182,7 @@ public class StatsService {
             if (user == null) {
                 continue;
             }
-
-            RunningStats stats = generateUserStats(user.getWorkouts()).getRunningStats();
-
+            RunningStats stats = user.getUserStatistics();
             if (stats == null) {
                 continue;
             }

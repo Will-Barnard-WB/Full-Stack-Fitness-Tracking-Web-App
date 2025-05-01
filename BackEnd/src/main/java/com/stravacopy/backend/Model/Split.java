@@ -56,7 +56,7 @@ public class Split
 
     public double getSpeed()
     {
-        return speed;
+        return this.speed;
     }
 
     //public Integer getCadence() {

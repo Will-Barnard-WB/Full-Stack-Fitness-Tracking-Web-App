@@ -51,18 +51,18 @@ const MoodPage = () => {
     }, []);
 
     return (
-        <div>
-            <h1>Mood Tracker (Recharts)</h1>
+        <div className="moodChartPage">
+            <h1 className="moodChartTitle">Mood Tracker</h1>
             {data.length === 0 ? (
                 <p>Loading data...</p>
             ) : (
                 <ResponsiveContainer width="100%" height={300}>
-                    <LineChart data={data} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
-                        <CartesianGrid strokeDasharray="3 3" />
-                        <XAxis dataKey="date" />
-                        <YAxis domain={[0, 10]} />
-                        <Tooltip />
-                        <Legend />
+                    <LineChart data={data} margin={{top: 20, right: 30, left: 20, bottom: 5}}>
+                        <CartesianGrid strokeDasharray="3 3"/>
+                        <XAxis dataKey="date"/>
+                        <YAxis domain={[0, 10]}/>
+                        <Tooltip/>
+                        <Legend/>
                         <Line
                             type="monotone"
                             dataKey="mood"
@@ -73,10 +73,7 @@ const MoodPage = () => {
                     </LineChart>
                 </ResponsiveContainer>
             )}
-
-            <button className='back' onClick={() => navigate('/Layout/MainWindow')}>Back</button>
-
-
+            <button className="back" onClick={() => navigate('/Layout/MainWindow')}>Back</button>
         </div>
     );
 };
