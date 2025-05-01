@@ -41,7 +41,7 @@ export default function App() {
                 <Route path="/" element={<SignIn />} />
                 <Route path="/SignUp" element={<SignUp />} />
                 <Route path="/TakeMood" element={<TakeMood />} />
-                <Route path="/backend-test" element={<BackendTest />} /> {/* ✅ Test Route */}
+                <Route path="/backend-test" element={<BackendTest />} />
                 <Route path="/BackendCall" element={<BackendCall />} />
                 <Route path="/layout" element={<Layout />}>
                     <Route index element={<MainWindow />} />

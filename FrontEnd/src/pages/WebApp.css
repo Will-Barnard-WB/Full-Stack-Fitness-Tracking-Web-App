@@ -490,11 +490,9 @@ input[type="checkbox"] {
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 .achievement-page {
-    min-height: 100vh;
-    padding: 60px 30px;
-    background-color: #f8fafc;
-    font-family: 'Segoe UI', sans-serif;
-    color: #1e293b;
+  background-color: #f8fafc;
+  padding: 60px 20px;
+  font-family: 'Segoe UI', sans-serif;
 }
 
 .achievement {

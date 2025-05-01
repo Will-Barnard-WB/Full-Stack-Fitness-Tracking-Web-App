@@ -79,7 +79,7 @@ const AchievementPage = () => {
     }, []);
 
     const data = {
-        dist: stats.totalDistance !== null ? (stats.totalDistance / 1000000).toFixed(1) : null,
+        dist: stats.totalDistance !== null ? (stats.totalDistance / 1000).toFixed(1) : null,
         alt: stats.totalAltitude !== null ? stats.totalAltitude.toFixed(1) : null,
         streak: calculateLoginStreak()
     };
@@ -119,7 +119,6 @@ const AchievementPage = () => {
                 )
             })}
             <button className='back' onClick={() => navigate('/Layout/MainWindow')}>Back</button>
-            <button onClick={() => navigate('/BackendCall')}>Back</button>
         </div>
     )
 }

@@ -36,7 +36,7 @@ function Leaderboard() {
                                 <li key={index} className="leaderboardItem">
                                     <span className="rank">{index + 1}.</span>
                                     <span className="name">{entry.username}</span>
-                                    <span className="score">{(entry.value/1000000).toFixed(1)}</span>
+                                    <span className="score">{(entry.value/1000).toFixed(1)}</span>
                                 </li>
                             ))}
                         </ul>

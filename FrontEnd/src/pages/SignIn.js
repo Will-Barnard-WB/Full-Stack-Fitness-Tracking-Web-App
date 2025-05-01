@@ -35,7 +35,7 @@ function SignIn() {
 
     return (
         <div className="login">
-            <h1 className='title'>Strava Ripoff</h1>
+            <h1 className='title'>Strider</h1>
             <h3>Enter user details</h3>
             <a href="/backend-test" style={{ display: 'block', marginTop: '1rem', color: 'blue' }}>
                 🔧 Test Backend Connection
