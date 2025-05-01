@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="d56295ae-c88d-4252-9dc7-350f940c7521" name="Changes" comment="Fixed not fetching leaderboards">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/src/pages/Settings.js" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/pages/Settings.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/src/pages/SignIn.js" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/pages/SignIn.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

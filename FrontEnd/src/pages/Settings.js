@@ -32,6 +32,7 @@ const Settings = () => {
     }
 
     function handleLogout() {
+        alert(`Logged out ${localStorage.getItem('loggedInUser')}`);
         localStorage.removeItem('loggedInUser');
         navigate("/");
     }

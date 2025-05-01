@@ -27,6 +27,7 @@ function SignIn() {
         if (userIndex !== -1 && password === passwords[userIndex]) {
             localStorage.setItem('loggedInUser', username);
             localStorage.setItem('userID', userId);
+            alert('Signed in Successfully!');
             navigate("/TakeMood");
         } else {
             alert('Incorrect username or password');
