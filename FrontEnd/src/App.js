@@ -19,7 +19,7 @@ function BackendTest() {
     const [message, setMessage] = useState("");
 
     useEffect(() => {
-        fetch("http://172.26.42.147:8080/users/hello")
+        fetch("https://full-stack-fitness-web-app.onrender.com/users/hello")
             .then((res) => res.text())
             .then((data) => setMessage(data))
             .catch((err) => console.error("Backend call failed:", err));
