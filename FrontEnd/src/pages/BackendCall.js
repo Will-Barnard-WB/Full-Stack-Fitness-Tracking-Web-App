@@ -7,7 +7,7 @@ const UserProfile = () => {
 
     useEffect(() => {
 
-        axios.get(`http://172.26.42.147:8080/users/${userId}/data`)
+        axios.get(`https://full-stack-fitness-web-app.onrender.com/users/${userId}/data`)
             .then(response => setUser(response.data))
             .catch(error => console.error('Error fetching user:', error));
     }, [userId]);
