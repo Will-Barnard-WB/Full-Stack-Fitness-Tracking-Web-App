@@ -15,7 +15,7 @@ public class CorsConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**") // allow all paths
-                        .allowedOrigins("http://localhost:3000") // allow your React app
+                        .allowedOrigins("http://localhost:3000", "https://full-stack-fitness-web-app.onrender.com/") // allow your React app
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                         .allowedHeaders("*")
                         .allowCredentials(true);
