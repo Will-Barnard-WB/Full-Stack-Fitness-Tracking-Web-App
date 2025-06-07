@@ -16,7 +16,7 @@ const TakeMood = () => {
 
     useEffect(() => {
         const userId = localStorage.getItem("userID");
-        fetch(`http://172.26.42.147:8080/users/${userId}/moods`) // Replace "1" with dynamic user ID if needed
+        fetch(`https://full-stack-fitness-web-app.onrender.com/users/${userId}/moods`) // Replace "1" with dynamic user ID if needed
             .then(res => res.json())
             .then(data => {
                 const moodValues = data.map(mood => mood.mood);
