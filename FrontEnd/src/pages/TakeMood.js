@@ -52,7 +52,7 @@ const TakeMood = () => {
 
         const userId = localStorage.getItem("userID");
 
-        fetch(`http://172.26.42.147:8080/users/${userId}/moods`, {
+        fetch(`https://full-stack-fitness-web-app.onrender.com/users/${userId}/moods`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
