@@ -13,7 +13,7 @@ function GraphsPage() {
 
     useEffect(() => {
         const userId = localStorage.getItem("userID");
-        fetch(`http://172.26.42.147:8080/users/${userId}/data`)
+        fetch(`https://full-stack-fitness-web-app.onrender.com/users/${userId}/data`)
             .then(res => res.json())
             .then(data => {
                 console.log("Fetched data:", data);
