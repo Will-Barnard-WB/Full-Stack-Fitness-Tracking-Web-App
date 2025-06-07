@@ -1,12 +1,12 @@
-# Stage 1: Build with Maven
-FROM maven:3.9.4-jdk-17 AS build
+# Stage 1: Build with Maven (uses JDK 11 by default)
+FROM maven:3.8.6 AS build
 
 WORKDIR /app
 COPY . .
 
 RUN mvn clean package
 
-# Stage 2: Run the app
+# Stage 2: Run the app with JDK 17
 FROM openjdk:17-jdk-slim
 
 WORKDIR /app
