@@ -21,7 +21,7 @@ const MoodPage = () => {
 
     useEffect(() => {
         const userId = localStorage.getItem("userID");
-        fetch(`http://172.26.42.147:8080/users/${userId}/moods`)
+        fetch(`https://full-stack-fitness-web-app.onrender.com/users/${userId}/moods`)
             .then(res => res.json())
             .then(data => {
                 const moodValues = data.map(mood => mood.mood);
