@@ -44,7 +44,7 @@ const AchievementPage = () => {
         const fetchStats = async () => {
             try {
                 const userId = localStorage.getItem('userID');
-                const response = await fetch(`http://172.26.42.147:8080/users/${userId}/data`);
+                const response = await fetch(`https://full-stack-fitness-web-app.onrender.com/users/${userId}/data`);
                 const data = await response.json();
 
                 const totalDistance = data.userStatistics?.totalDistance ?? 0;
