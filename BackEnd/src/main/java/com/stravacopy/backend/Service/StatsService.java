@@ -59,7 +59,7 @@ public class StatsService {
         double fastest10kTime = GenerateFastestSegments(splits, 10000);
 
         workout.setSplitComparisons(compareSplits(splits));
-        totalDistance = splits.getLast().getDistance();
+        totalDistance = splits.get(splits.size() - 1).getDistance();
 
         return new RunningStats(totalDistance, avgHeartRate, avgSpeed, fastest1kTime,fastest5kTime,fastest10kTime, highestSpeed, highestHeartRate, 0);
     }
