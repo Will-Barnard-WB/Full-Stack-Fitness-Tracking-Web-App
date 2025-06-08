@@ -1,6 +1,17 @@
+Login Page:
+<img width="502" alt="image" src="https://github.com/user-attachments/assets/faaa4f97-40de-401d-ae5c-8c10b8a5e8e2" />
+
 Main Menu:
 
 <img width="502" alt="image" src="https://github.com/user-attachments/assets/daa211bc-80ac-4895-b0d9-f78726eb33a7" />
+
+Mood Tracker:
+
+<img width="502" alt="image" src="https://github.com/user-attachments/assets/c0a2926b-727e-4a2d-9fcb-70200e8939dc" />
+
+Mood Visualiser:
+
+<img width="502" alt="image" src="https://github.com/user-attachments/assets/1d3b8f5c-6d03-4783-9ef1-6728874d9faa" />
 
 Goal Tracker:
 
