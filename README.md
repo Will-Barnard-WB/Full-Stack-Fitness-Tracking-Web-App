@@ -18,5 +18,6 @@ Leaderboard Page:
 
 <img width="502" alt="image" src="https://github.com/user-attachments/assets/e4894501-70ad-46cf-af3b-0e799dbf27ce" />
 
+Settings Page:
 
-
+<img width="502" alt="image" src="https://github.com/user-attachments/assets/8339707d-a8b1-47ce-84b8-2f99f3a45be2" />
