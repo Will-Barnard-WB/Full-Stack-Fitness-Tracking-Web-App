@@ -1,5 +1,20 @@
 🏃‍♂️ Full-Stack Fitness Tracking Web App
-A full-featured fitness tracking platform that integrates with the Garmin API to collect and analyze user health data. This app allows users to track workouts, set personal goals, monitor mood, view performance insights, earn achievements, and compete on leaderboards — all within an engaging and interactive UI.
+
+A full-featured fitness tracking platform that integrates with the Garmin API to collect and analyze user health data. This app allows users to:
+
+Track workouts
+
+Set personal goals
+
+Monitor mood
+
+View performance insights
+
+Earn achievements
+
+Compete on leaderboards
+
+All within an engaging and interactive UI.
 
 🛠️ Tech Stack
 Frontend: React
@@ -13,42 +28,40 @@ API Integration: Garmin API
 Deployment: Render (backend), Vercel (frontend)
 
 ✨ Features
-🔐 User Authentication: Secure login and session management
+🔐 User Authentication – Secure login and session management
 
-📊 Data Integration: Syncs with Garmin API to collect activity and health metrics
+📊 Data Integration – Sync with Garmin API for real-world fitness data
 
-🧠 Mood Tracking: Users can log daily moods and reflect over time
+🧠 Mood Tracking – Log and visualize mood over time
 
-📈 Statistics & Visualizations: Graphical insights into activity, mood trends, and goals
+📈 Statistics & Visualizations – Graphs for fitness, goal, and mood insights
 
-🎯 Goal Tracking: Set and track progress toward fitness and wellness goals
+🎯 Goal Tracking – Set fitness goals and track your progress
 
-🏆 Achievements: Milestones and rewards for consistent effort and long-term progress
+🏆 Achievements – Earn badges for activity milestones
 
-🏅 Leaderboards: Compare performance against other users to stay motivated
+🏅 Leaderboards – Compare performance with other users
 
-⚙️ User Settings: Customize goals, preferences, and personal data visibility
+⚙️ Settings – Fully configurable user preferences and data controls
 
 🧱 Architecture
-This project is built using a MERN-style full stack with a Java backend:
+🖥️ Frontend
+Built with React SPA
 
-🖥 Frontend
-React-based single-page application (SPA)
+Responsive UI with reusable components
 
 Hosted on Vercel for fast global delivery
-
-Responsive, modular UI with reusable components
 
 🚀 Backend
 Spring Boot REST API
 
-Stores data in MongoDB Atlas (cloud NoSQL)
+Connected to MongoDB Atlas
 
-Integrated with Garmin API for real-time health data
+Integrated with Garmin API for live activity data
 
-Uses Lombok to minimize boilerplate
+Lombok to reduce boilerplate
 
-Hosted on Render with auto-deployment from GitHub
+Hosted on Render, auto-deployed from GitHub
 
 📸 Screenshots
 🔐 Login Page
@@ -70,13 +83,12 @@ Hosted on Render with auto-deployment from GitHub
 ⚙️ Settings Page
 <img width="502" alt="Settings Page" src="https://github.com/user-attachments/assets/8339707d-a8b1-47ce-84b8-2f99f3a45be2" />
 🚧 Future Improvements
-🔐 Add JWT-based auth for secure API endpoints
+🔐 Add JWT-based authentication for secure API access
 
-💤 Expand Garmin data to include sleep and stress tracking
+💤 Extend Garmin API usage to include sleep and stress tracking
 
-🔄 Implement CI/CD pipeline with GitHub Actions
+🔁 Implement CI/CD with GitHub Actions
 
-🐳 Add Docker support for local development and deployment
+🐳 Add Docker support for local and production deployments
 
-💬 Integrate user feedback and social features
-
+💬 Enable community/social features and feedback collection
