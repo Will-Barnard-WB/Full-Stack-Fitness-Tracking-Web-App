@@ -1,8 +1,7 @@
 🏃‍♂️ Full-Stack Fitness Tracking Web App
 A full-featured fitness tracking platform that integrates with the Garmin API to collect and analyze user health data. This app allows users to track workouts, set personal goals, monitor mood, view performance insights, earn achievements, and compete on leaderboards — all within an engaging and interactive UI.
 
-Tech Stack:
-
+🛠️ Tech Stack
 Frontend: React
 
 Backend: Spring Boot, Maven, Lombok
@@ -14,40 +13,40 @@ API Integration: Garmin API
 Deployment: Render (backend), Vercel (frontend)
 
 ✨ Features
-🔐 User Authentication: Secure login and session management.
+🔐 User Authentication: Secure login and session management
 
-📊 Data Integration: Syncs with Garmin API to collect activity and health metrics.
+📊 Data Integration: Syncs with Garmin API to collect activity and health metrics
 
-🧠 Mood Tracking: Users can log daily moods and reflect over time.
+🧠 Mood Tracking: Users can log daily moods and reflect over time
 
-📈 Statistics & Visualizations: Graphical insights into activity, mood trends, and goals.
+📈 Statistics & Visualizations: Graphical insights into activity, mood trends, and goals
 
-🎯 Goal Tracking: Set and track progress toward fitness and wellness goals.
+🎯 Goal Tracking: Set and track progress toward fitness and wellness goals
 
-🏆 Achievements: Milestones and rewards for consistent effort and long-term progress.
+🏆 Achievements: Milestones and rewards for consistent effort and long-term progress
 
-🏅 Leaderboards: Compare performance against other users to stay motivated.
+🏅 Leaderboards: Compare performance against other users to stay motivated
 
-⚙️ User Settings: Customize goals, preferences, and personal data visibility.
+⚙️ User Settings: Customize goals, preferences, and personal data visibility
 
 🧱 Architecture
 This project is built using a MERN-style full stack with a Java backend:
 
 🖥 Frontend
-React-based SPA
+React-based single-page application (SPA)
 
 Hosted on Vercel for fast global delivery
 
-Responsive and user-friendly UI with reusable components
+Responsive, modular UI with reusable components
 
 🚀 Backend
 Spring Boot REST API
 
-Uses MongoDB Atlas for cloud-hosted NoSQL storage
+Stores data in MongoDB Atlas (cloud NoSQL)
 
-Integrated with Garmin API for real-world data ingestion
+Integrated with Garmin API for real-time health data
 
-Lombok to reduce boilerplate and simplify model handling
+Uses Lombok to minimize boilerplate
 
 Hosted on Render with auto-deployment from GitHub
 
@@ -71,12 +70,13 @@ Hosted on Render with auto-deployment from GitHub
 ⚙️ Settings Page
 <img width="502" alt="Settings Page" src="https://github.com/user-attachments/assets/8339707d-a8b1-47ce-84b8-2f99f3a45be2" />
 🚧 Future Improvements
-Add JWT-based auth for secure API endpoints
+🔐 Add JWT-based auth for secure API endpoints
 
-Expand Garmin data to include sleep and stress tracking
+💤 Expand Garmin data to include sleep and stress tracking
 
-Implement CI/CD pipeline with GitHub Actions
+🔄 Implement CI/CD pipeline with GitHub Actions
 
-Add Docker support for local dev + deployment
+🐳 Add Docker support for local development and deployment
 
-Integrate user feedback and social features
+💬 Integrate user feedback and social features
+
