@@ -25,7 +25,6 @@ All within an engaging and interactive UI.
 
 ## ✨ Features
 
-- 🔐 **User Authentication** – Secure login and session management  
 - 📊 **Data Integration** – Sync with Garmin API for real-world fitness data  
 - 🧠 **Mood Tracking** – Log and visualize mood over time  
 - 📈 **Statistics & Visualizations** – Graphs for fitness, goal, and mood insights  
