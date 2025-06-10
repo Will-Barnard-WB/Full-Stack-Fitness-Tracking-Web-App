@@ -1,4 +1,4 @@
-# 🏃‍♂️ Full-Stack Fitness Tracking Web App
+# 🏃‍♂️ Full-Stack Fitness Tracking Web Application
 
 A full-featured fitness tracking platform that integrates with the **Garmin API** to collect and analyze user health data. This app allows users to:
 
